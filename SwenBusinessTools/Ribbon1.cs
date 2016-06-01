@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using Microsoft.Office.Tools.Ribbon;
 using Word = Microsoft.Office.Interop.Word;
+using Excel = Microsoft.Office.Interop.Excel; 
+
 
 namespace SwenBusinessTools
 {
@@ -85,6 +87,31 @@ namespace SwenBusinessTools
         {
             //Globals.ThisAddIn.Application.Quit();
             Globals.ThisAddIn.Application.ActiveDocument.Close();
+        }
+
+        private void button1_Click_1(object sender, RibbonControlEventArgs e)
+        {
+            var excelApp = new Excel.Application();
+            excelApp.Visible = false;
+            
+            var workBook = excelApp.Workbooks.Open(@"c:\temp\doc1.xls");
+
+            var sheet = (Excel.Worksheet)workBook.Sheets["Foglio1"];
+
+            Excel.Range last = sheet.Cells.SpecialCells(Excel.XlCellType.xlCellTypeLastCell, Type.Missing);
+
+            var pArea = sheet.PageSetup.PrintArea;
+            sheet.Range[pArea].Copy();
+            
+            var doc = Globals.ThisAddIn.Application.ActiveDocument;
+
+            doc.Paragraphs[1].Range.PasteExcelTable(true, false, false);
+
+            var WordTable = doc.Tables[1];
+            WordTable.AutoFitBehavior(Word.WdAutoFitBehavior.wdAutoFitWindow);
+
+            workBook.Close();
+            excelApp.Quit();
         }
     }
 }

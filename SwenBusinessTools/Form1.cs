@@ -23,10 +23,6 @@ namespace SwenBusinessTools
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            openFileDialog1.ShowDialog();
-        }
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -36,7 +32,7 @@ namespace SwenBusinessTools
             //((Microsoft.Office.Core.DocumentProperties)properties).Add("NOME_AZIENDA", false, Microsoft.Office.Core.MsoDocProperties.msoPropertyTypeString, "SWEN S.R.L");
 
 
-            textBox1.Text = ReadDocumentProperty(doc, "NOME_AZIENDA");
+           // textBox1.Text = ReadDocumentProperty(doc, "NOME_AZIENDA");
 
         }
 

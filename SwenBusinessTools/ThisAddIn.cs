@@ -11,15 +11,9 @@ namespace SwenBusinessTools
 {
     public partial class ThisAddIn
     {
-        private SwenUserControl myUserControl1;
-
-        private Microsoft.Office.Tools.CustomTaskPane myCustomTaskPane;
         
         private void ThisAddIn_Startup(object sender, System.EventArgs e)
         {
-            //myUserControl1 = new SwenUserControl();
-            //myCustomTaskPane = this.CustomTaskPanes.Add(myUserControl1, "SWEN s.r.l.");
-            //myCustomTaskPane.Visible = true;           
         }
 
         private void ThisAddIn_Shutdown(object sender, System.EventArgs e)

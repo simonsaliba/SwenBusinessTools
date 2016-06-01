@@ -35,29 +35,18 @@
         private void InitializeComponent()
         {
             Microsoft.Office.Tools.Ribbon.RibbonDialogLauncher ribbonDialogLauncherImpl1 = this.Factory.CreateRibbonDialogLauncher();
-            Microsoft.Office.Tools.Ribbon.RibbonDropDownItem ribbonDropDownItemImpl1 = this.Factory.CreateRibbonDropDownItem();
-            Microsoft.Office.Tools.Ribbon.RibbonDropDownItem ribbonDropDownItemImpl2 = this.Factory.CreateRibbonDropDownItem();
-            Microsoft.Office.Tools.Ribbon.RibbonDropDownItem ribbonDropDownItemImpl3 = this.Factory.CreateRibbonDropDownItem();
-            Microsoft.Office.Tools.Ribbon.RibbonDropDownItem ribbonDropDownItemImpl4 = this.Factory.CreateRibbonDropDownItem();
-            Microsoft.Office.Tools.Ribbon.RibbonDropDownItem ribbonDropDownItemImpl5 = this.Factory.CreateRibbonDropDownItem();
-            Microsoft.Office.Tools.Ribbon.RibbonDropDownItem ribbonDropDownItemImpl6 = this.Factory.CreateRibbonDropDownItem();
-            Microsoft.Office.Tools.Ribbon.RibbonDropDownItem ribbonDropDownItemImpl7 = this.Factory.CreateRibbonDropDownItem();
-            Microsoft.Office.Tools.Ribbon.RibbonDropDownItem ribbonDropDownItemImpl8 = this.Factory.CreateRibbonDropDownItem();
-            Microsoft.Office.Tools.Ribbon.RibbonDropDownItem ribbonDropDownItemImpl9 = this.Factory.CreateRibbonDropDownItem();
             this.tab1 = this.Factory.CreateRibbonTab();
             this.grpGenerale = this.Factory.CreateRibbonGroup();
-            this.separator1 = this.Factory.CreateRibbonSeparator();
-            this.separator2 = this.Factory.CreateRibbonSeparator();
-            this.grpImpostazioni = this.Factory.CreateRibbonGroup();
-            this.group1 = this.Factory.CreateRibbonGroup();
             this.gallery1 = this.Factory.CreateRibbonGallery();
-            this.button12 = this.Factory.CreateRibbonButton();
-            this.button13 = this.Factory.CreateRibbonButton();
+            this.separator1 = this.Factory.CreateRibbonSeparator();
             this.btnApri = this.Factory.CreateRibbonButton();
+            this.separator2 = this.Factory.CreateRibbonSeparator();
             this.button2 = this.Factory.CreateRibbonButton();
             this.btnSalvaVersione = this.Factory.CreateRibbonButton();
+            this.grpImpostazioni = this.Factory.CreateRibbonGroup();
             this.button1 = this.Factory.CreateRibbonButton();
             this.button3 = this.Factory.CreateRibbonButton();
+            this.group1 = this.Factory.CreateRibbonGroup();
             this.btnChiudiDocumentoAttivo = this.Factory.CreateRibbonButton();
             this.tab1.SuspendLayout();
             this.grpGenerale.SuspendLayout();
@@ -85,87 +74,17 @@
             this.grpGenerale.Label = "Generale";
             this.grpGenerale.Name = "grpGenerale";
             // 
+            // gallery1
+            // 
+            this.gallery1.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
+            this.gallery1.Label = "New Template";
+            this.gallery1.Name = "gallery1";
+            this.gallery1.OfficeImageId = "FileNew";
+            this.gallery1.ShowImage = true;
+            // 
             // separator1
             // 
             this.separator1.Name = "separator1";
-            // 
-            // separator2
-            // 
-            this.separator2.Name = "separator2";
-            // 
-            // grpImpostazioni
-            // 
-            this.grpImpostazioni.DialogLauncher = ribbonDialogLauncherImpl1;
-            this.grpImpostazioni.Items.Add(this.button1);
-            this.grpImpostazioni.Items.Add(this.button3);
-            this.grpImpostazioni.Label = "Impostazioni";
-            this.grpImpostazioni.Name = "grpImpostazioni";
-            this.grpImpostazioni.DialogLauncherClick += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.grpImpostazioni_DialogLauncherClick);
-            // 
-            // group1
-            // 
-            this.group1.Items.Add(this.btnChiudiDocumentoAttivo);
-            this.group1.Label = "Chiudi";
-            this.group1.Name = "group1";
-            // 
-            // gallery1
-            // 
-            this.gallery1.Buttons.Add(this.button12);
-            this.gallery1.Buttons.Add(this.button13);
-            this.gallery1.ColumnCount = 5;
-            this.gallery1.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
-            this.gallery1.Description = "Swen Templates";
-            ribbonDropDownItemImpl1.Image = global::SwenBusinessTools.Properties.Resources.preview_offerta_economica;
-            ribbonDropDownItemImpl1.Label = "Offerta Economica";
-            ribbonDropDownItemImpl1.ScreenTip = "Offerta Economica";
-            ribbonDropDownItemImpl1.SuperTip = "Template dell\'offerta economica Offerta Economica";
-            ribbonDropDownItemImpl1.Tag = "";
-            ribbonDropDownItemImpl2.Image = global::SwenBusinessTools.Properties.Resources.preview_offerta_economica;
-            ribbonDropDownItemImpl2.Label = "Fattura 1";
-            ribbonDropDownItemImpl2.ScreenTip = "Fattura";
-            ribbonDropDownItemImpl2.SuperTip = "Fattura 1";
-            ribbonDropDownItemImpl3.Image = global::SwenBusinessTools.Properties.Resources.preview_offerta_economica;
-            ribbonDropDownItemImpl3.Label = "Fattura 2";
-            ribbonDropDownItemImpl4.Image = global::SwenBusinessTools.Properties.Resources.preview_offerta_economica;
-            ribbonDropDownItemImpl4.Label = "Item3";
-            ribbonDropDownItemImpl5.Image = global::SwenBusinessTools.Properties.Resources.preview_offerta_economica;
-            ribbonDropDownItemImpl5.Label = "Item4";
-            ribbonDropDownItemImpl6.Image = global::SwenBusinessTools.Properties.Resources.preview_offerta_economica;
-            ribbonDropDownItemImpl6.Label = "Item5";
-            ribbonDropDownItemImpl7.Image = global::SwenBusinessTools.Properties.Resources.preview_offerta_economica;
-            ribbonDropDownItemImpl7.Label = "Item6";
-            ribbonDropDownItemImpl8.Image = global::SwenBusinessTools.Properties.Resources.preview_offerta_economica;
-            ribbonDropDownItemImpl8.Label = "Item7";
-            ribbonDropDownItemImpl9.Image = global::SwenBusinessTools.Properties.Resources.preview_offerta_economica;
-            ribbonDropDownItemImpl9.Label = "Item8";
-            this.gallery1.Items.Add(ribbonDropDownItemImpl1);
-            this.gallery1.Items.Add(ribbonDropDownItemImpl2);
-            this.gallery1.Items.Add(ribbonDropDownItemImpl3);
-            this.gallery1.Items.Add(ribbonDropDownItemImpl4);
-            this.gallery1.Items.Add(ribbonDropDownItemImpl5);
-            this.gallery1.Items.Add(ribbonDropDownItemImpl6);
-            this.gallery1.Items.Add(ribbonDropDownItemImpl7);
-            this.gallery1.Items.Add(ribbonDropDownItemImpl8);
-            this.gallery1.Items.Add(ribbonDropDownItemImpl9);
-            this.gallery1.Label = "Nuovo Template";
-            this.gallery1.Name = "gallery1";
-            this.gallery1.OfficeImageId = "FileNew";
-            this.gallery1.RowCount = 2;
-            this.gallery1.ScreenTip = "Templates";
-            this.gallery1.ShowImage = true;
-            this.gallery1.ShowItemLabel = false;
-            this.gallery1.ShowItemSelection = true;
-            this.gallery1.SuperTip = "Swen Templates per la creazione di nuovi documenti di business";
-            // 
-            // button12
-            // 
-            this.button12.Label = "button12";
-            this.button12.Name = "button12";
-            // 
-            // button13
-            // 
-            this.button13.Label = "button13";
-            this.button13.Name = "button13";
             // 
             // btnApri
             // 
@@ -174,6 +93,10 @@
             this.btnApri.Name = "btnApri";
             this.btnApri.OfficeImageId = "FileOpen";
             this.btnApri.ShowImage = true;
+            // 
+            // separator2
+            // 
+            this.separator2.Name = "separator2";
             // 
             // button2
             // 
@@ -193,12 +116,22 @@
             this.btnSalvaVersione.ShowImage = true;
             this.btnSalvaVersione.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.button3_Click);
             // 
+            // grpImpostazioni
+            // 
+            this.grpImpostazioni.DialogLauncher = ribbonDialogLauncherImpl1;
+            this.grpImpostazioni.Items.Add(this.button1);
+            this.grpImpostazioni.Items.Add(this.button3);
+            this.grpImpostazioni.Label = "Impostazioni";
+            this.grpImpostazioni.Name = "grpImpostazioni";
+            this.grpImpostazioni.DialogLauncherClick += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.grpImpostazioni_DialogLauncherClick);
+            // 
             // button1
             // 
             this.button1.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
             this.button1.Label = "button1";
             this.button1.Name = "button1";
             this.button1.ShowImage = true;
+            this.button1.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.button1_Click_1);
             // 
             // button3
             // 
@@ -206,6 +139,12 @@
             this.button3.Label = "button3";
             this.button3.Name = "button3";
             this.button3.ShowImage = true;
+            // 
+            // group1
+            // 
+            this.group1.Items.Add(this.btnChiudiDocumentoAttivo);
+            this.group1.Label = "Chiudi";
+            this.group1.Name = "group1";
             // 
             // btnChiudiDocumentoAttivo
             // 
@@ -239,10 +178,7 @@
         internal Microsoft.Office.Tools.Ribbon.RibbonTab tab1;
         internal Microsoft.Office.Tools.Ribbon.RibbonGroup grpImpostazioni;
         internal Microsoft.Office.Tools.Ribbon.RibbonGroup grpGenerale;
-        internal Microsoft.Office.Tools.Ribbon.RibbonGallery gallery1;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton button2;
-        private Microsoft.Office.Tools.Ribbon.RibbonButton button12;
-        private Microsoft.Office.Tools.Ribbon.RibbonButton button13;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton btnApri;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton btnSalvaVersione;
         internal Microsoft.Office.Tools.Ribbon.RibbonGroup group1;
@@ -251,6 +187,7 @@
         internal Microsoft.Office.Tools.Ribbon.RibbonSeparator separator2;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton button1;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton button3;
+        internal Microsoft.Office.Tools.Ribbon.RibbonGallery gallery1;
     }
 
     partial class ThisRibbonCollection
