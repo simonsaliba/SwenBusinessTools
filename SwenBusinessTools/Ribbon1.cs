@@ -109,5 +109,19 @@ namespace SwenBusinessTools
             workBook.Close();
             excelApp.Quit();
         }
+
+        private void gryTemplates_Click(object sender, RibbonControlEventArgs e)
+        {
+            var selectedItem = ((Microsoft.Office.Tools.Ribbon.RibbonGallery)sender).SelectedItem;
+
+            switch (selectedItem.Id)
+            {
+                case "__id3":
+                    var temp = new frmGenerazioneTemplateFattura();
+                    temp.ShowDialog();
+                    break;
+
+            }
+        }
     }
 }

@@ -18,7 +18,7 @@ namespace SwenBusinessTools
         
         private void ThisAddIn_Startup(object sender, System.EventArgs e)
         {
-            storagePath = Win32.Registry.Users.
+           // storagePath = Win32.Registry.Users.
         }
 
         private void ThisAddIn_Shutdown(object sender, System.EventArgs e)
