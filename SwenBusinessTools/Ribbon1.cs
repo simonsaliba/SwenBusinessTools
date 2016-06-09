@@ -19,14 +19,10 @@ namespace SwenBusinessTools
 
         private void button1_Click(object sender, RibbonControlEventArgs e)
         {
-            var form = new Form1();
-            form.Show();
         }
 
         private void grpImpostazioni_DialogLauncherClick(object sender, RibbonControlEventArgs e)
         {
-            var form = new Form1();
-            form.Show();
         }
 
         private void button2_Click(object sender, RibbonControlEventArgs e)

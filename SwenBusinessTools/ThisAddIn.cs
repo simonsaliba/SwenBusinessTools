@@ -6,14 +6,19 @@ using System.Xml.Linq;
 using Word = Microsoft.Office.Interop.Word;
 using Office = Microsoft.Office.Core;
 using Microsoft.Office.Tools.Word;
+using Win32 = Microsoft.Win32;
 
 namespace SwenBusinessTools
 {
     public partial class ThisAddIn
     {
+
+
+        Win32.RegistryKey storagePath;
         
         private void ThisAddIn_Startup(object sender, System.EventArgs e)
         {
+            storagePath = Win32.Registry.Users.
         }
 
         private void ThisAddIn_Shutdown(object sender, System.EventArgs e)

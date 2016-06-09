@@ -34,14 +34,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            Microsoft.Office.Tools.Ribbon.RibbonDropDownItem ribbonDropDownItemImpl1 = this.Factory.CreateRibbonDropDownItem();
             Microsoft.Office.Tools.Ribbon.RibbonDialogLauncher ribbonDialogLauncherImpl1 = this.Factory.CreateRibbonDialogLauncher();
             this.tab1 = this.Factory.CreateRibbonTab();
             this.grpGenerale = this.Factory.CreateRibbonGroup();
-            this.gallery1 = this.Factory.CreateRibbonGallery();
+            this.gryTemplates = this.Factory.CreateRibbonGallery();
             this.separator1 = this.Factory.CreateRibbonSeparator();
             this.btnApri = this.Factory.CreateRibbonButton();
             this.separator2 = this.Factory.CreateRibbonSeparator();
-            this.button2 = this.Factory.CreateRibbonButton();
+            this.btnSalvaCopia = this.Factory.CreateRibbonButton();
             this.btnSalvaVersione = this.Factory.CreateRibbonButton();
             this.grpImpostazioni = this.Factory.CreateRibbonGroup();
             this.button1 = this.Factory.CreateRibbonButton();
@@ -65,22 +66,27 @@
             // 
             // grpGenerale
             // 
-            this.grpGenerale.Items.Add(this.gallery1);
+            this.grpGenerale.Items.Add(this.gryTemplates);
             this.grpGenerale.Items.Add(this.separator1);
             this.grpGenerale.Items.Add(this.btnApri);
             this.grpGenerale.Items.Add(this.separator2);
-            this.grpGenerale.Items.Add(this.button2);
+            this.grpGenerale.Items.Add(this.btnSalvaCopia);
             this.grpGenerale.Items.Add(this.btnSalvaVersione);
             this.grpGenerale.Label = "Generale";
             this.grpGenerale.Name = "grpGenerale";
             // 
-            // gallery1
+            // gryTemplates
             // 
-            this.gallery1.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
-            this.gallery1.Label = "New Template";
-            this.gallery1.Name = "gallery1";
-            this.gallery1.OfficeImageId = "FileNew";
-            this.gallery1.ShowImage = true;
+            this.gryTemplates.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
+            ribbonDropDownItemImpl1.Image = global::SwenBusinessTools.Properties.Resources.preview_offerta_economica;
+            ribbonDropDownItemImpl1.Label = "Offerta Economica";
+            ribbonDropDownItemImpl1.ScreenTip = "Offerta Economica";
+            ribbonDropDownItemImpl1.SuperTip = "Template word di offerta economica";
+            this.gryTemplates.Items.Add(ribbonDropDownItemImpl1);
+            this.gryTemplates.Label = "New Template";
+            this.gryTemplates.Name = "gryTemplates";
+            this.gryTemplates.OfficeImageId = "FileNew";
+            this.gryTemplates.ShowImage = true;
             // 
             // separator1
             // 
@@ -98,14 +104,14 @@
             // 
             this.separator2.Name = "separator2";
             // 
-            // button2
+            // btnSalvaCopia
             // 
-            this.button2.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
-            this.button2.Label = "Salva Copia";
-            this.button2.Name = "button2";
-            this.button2.OfficeImageId = "FileSave";
-            this.button2.ShowImage = true;
-            this.button2.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.button2_Click);
+            this.btnSalvaCopia.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
+            this.btnSalvaCopia.Label = "Salva Copia";
+            this.btnSalvaCopia.Name = "btnSalvaCopia";
+            this.btnSalvaCopia.OfficeImageId = "FileSave";
+            this.btnSalvaCopia.ShowImage = true;
+            this.btnSalvaCopia.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.button2_Click);
             // 
             // btnSalvaVersione
             // 
@@ -178,7 +184,7 @@
         internal Microsoft.Office.Tools.Ribbon.RibbonTab tab1;
         internal Microsoft.Office.Tools.Ribbon.RibbonGroup grpImpostazioni;
         internal Microsoft.Office.Tools.Ribbon.RibbonGroup grpGenerale;
-        internal Microsoft.Office.Tools.Ribbon.RibbonButton button2;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton btnSalvaCopia;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton btnApri;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton btnSalvaVersione;
         internal Microsoft.Office.Tools.Ribbon.RibbonGroup group1;
@@ -187,7 +193,7 @@
         internal Microsoft.Office.Tools.Ribbon.RibbonSeparator separator2;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton button1;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton button3;
-        internal Microsoft.Office.Tools.Ribbon.RibbonGallery gallery1;
+        internal Microsoft.Office.Tools.Ribbon.RibbonGallery gryTemplates;
     }
 
     partial class ThisRibbonCollection
