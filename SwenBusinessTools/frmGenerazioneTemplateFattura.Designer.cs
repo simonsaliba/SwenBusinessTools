@@ -30,9 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmGenerazioneTemplateFattura));
             this.wizardControl1 = new AeroWizard.WizardControl();
-            this.wizardPage1 = new AeroWizard.WizardPage();
+            this.wpDatiDocumento = new AeroWizard.WizardPage();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.txtProgetto = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.txtPersonaDiRiferimento = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -47,6 +46,7 @@
             this.txtNumeroProtocolloMittente = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnSeleziona = new System.Windows.Forms.Button();
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
@@ -79,49 +79,72 @@
             this.label4 = new System.Windows.Forms.Label();
             this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.wizardPage2 = new AeroWizard.WizardPage();
+            this.wpNote = new AeroWizard.WizardPage();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.checkBox3 = new System.Windows.Forms.CheckBox();
+            this.checkBox2 = new System.Windows.Forms.CheckBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.wpCondizioniGenerali = new AeroWizard.WizardPage();
+            this.checkBox4 = new System.Windows.Forms.CheckBox();
+            this.chkACC = new System.Windows.Forms.CheckBox();
+            this.chkTRA = new System.Windows.Forms.CheckBox();
+            this.chkINT = new System.Windows.Forms.CheckBox();
+            this.chkDEV = new System.Windows.Forms.CheckBox();
+            this.chkFOR = new System.Windows.Forms.CheckBox();
+            this.chkIMP = new System.Windows.Forms.CheckBox();
+            this.chkATS = new System.Windows.Forms.CheckBox();
+            this.chkSOP = new System.Windows.Forms.CheckBox();
+            this.chkCON = new System.Windows.Forms.CheckBox();
+            this.chkHWA = new System.Windows.Forms.CheckBox();
+            this.chkHWO = new System.Windows.Forms.CheckBox();
+            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.comboBox8 = new System.Windows.Forms.ComboBox();
+            this.btnAggiungiProgetto = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.wizardControl1)).BeginInit();
-            this.wizardPage1.SuspendLayout();
+            this.wpDatiDocumento.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            this.wizardPage2.SuspendLayout();
+            this.wpNote.SuspendLayout();
             this.groupBox4.SuspendLayout();
+            this.wpCondizioniGenerali.SuspendLayout();
             this.SuspendLayout();
             // 
             // wizardControl1
             // 
             this.wizardControl1.BackColor = System.Drawing.Color.White;
+            this.wizardControl1.CancelButtonText = "&Annulla";
             this.wizardControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.wizardControl1.FinishButtonText = "&Termina";
             this.wizardControl1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.wizardControl1.Location = new System.Drawing.Point(0, 0);
             this.wizardControl1.Name = "wizardControl1";
-            this.wizardControl1.Pages.Add(this.wizardPage1);
-            this.wizardControl1.Pages.Add(this.wizardPage2);
-            this.wizardControl1.Size = new System.Drawing.Size(688, 601);
+            this.wizardControl1.NextButtonText = "&Successivo";
+            this.wizardControl1.Pages.Add(this.wpDatiDocumento);
+            this.wizardControl1.Pages.Add(this.wpNote);
+            this.wizardControl1.Pages.Add(this.wpCondizioniGenerali);
+            this.wizardControl1.Size = new System.Drawing.Size(685, 599);
             this.wizardControl1.TabIndex = 0;
             this.wizardControl1.Text = "Creazione nuova offerta economica";
             this.wizardControl1.Title = "Creazione nuova offerta economica";
             this.wizardControl1.TitleIcon = ((System.Drawing.Icon)(resources.GetObject("wizardControl1.TitleIcon")));
             // 
-            // wizardPage1
+            // wpDatiDocumento
             // 
-            this.wizardPage1.AllowBack = false;
-            this.wizardPage1.Controls.Add(this.groupBox3);
-            this.wizardPage1.Controls.Add(this.groupBox2);
-            this.wizardPage1.Controls.Add(this.groupBox1);
-            this.wizardPage1.Name = "wizardPage1";
-            this.wizardPage1.Size = new System.Drawing.Size(641, 447);
-            this.wizardPage1.TabIndex = 0;
-            this.wizardPage1.Text = "Inserimento dati documento";
+            this.wpDatiDocumento.AllowBack = false;
+            this.wpDatiDocumento.Controls.Add(this.groupBox3);
+            this.wpDatiDocumento.Controls.Add(this.groupBox2);
+            this.wpDatiDocumento.Controls.Add(this.groupBox1);
+            this.wpDatiDocumento.Name = "wpDatiDocumento";
+            this.wpDatiDocumento.Size = new System.Drawing.Size(638, 445);
+            this.wpDatiDocumento.TabIndex = 0;
+            this.wpDatiDocumento.Text = "Inserimento dati documento";
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.txtProgetto);
+            this.groupBox3.Controls.Add(this.btnAggiungiProgetto);
+            this.groupBox3.Controls.Add(this.comboBox8);
             this.groupBox3.Controls.Add(this.label7);
             this.groupBox3.Controls.Add(this.txtPersonaDiRiferimento);
             this.groupBox3.Controls.Add(this.label6);
@@ -141,13 +164,6 @@
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Riferimenti";
-            // 
-            // txtProgetto
-            // 
-            this.txtProgetto.Location = new System.Drawing.Point(137, 110);
-            this.txtProgetto.Name = "txtProgetto";
-            this.txtProgetto.Size = new System.Drawing.Size(135, 23);
-            this.txtProgetto.TabIndex = 13;
             // 
             // label7
             // 
@@ -258,6 +274,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.btnSeleziona);
             this.groupBox2.Controls.Add(this.textBox7);
             this.groupBox2.Controls.Add(this.textBox6);
             this.groupBox2.Controls.Add(this.label19);
@@ -278,6 +295,15 @@
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Dati Destinatario";
+            // 
+            // btnSeleziona
+            // 
+            this.btnSeleziona.Location = new System.Drawing.Point(561, 21);
+            this.btnSeleziona.Name = "btnSeleziona";
+            this.btnSeleziona.Size = new System.Drawing.Size(67, 24);
+            this.btnSeleziona.TabIndex = 16;
+            this.btnSeleziona.Text = "Seleziona";
+            this.btnSeleziona.UseVisualStyleBackColor = true;
             // 
             // textBox7
             // 
@@ -561,13 +587,13 @@
             this.label3.TabIndex = 2;
             this.label3.Text = "Identificativo Documento";
             // 
-            // wizardPage2
+            // wpNote
             // 
-            this.wizardPage2.Controls.Add(this.groupBox4);
-            this.wizardPage2.Name = "wizardPage2";
-            this.wizardPage2.Size = new System.Drawing.Size(641, 447);
-            this.wizardPage2.TabIndex = 1;
-            this.wizardPage2.Text = "Note / Configurazione offerta / Condizioni generali";
+            this.wpNote.Controls.Add(this.groupBox4);
+            this.wpNote.Name = "wpNote";
+            this.wpNote.Size = new System.Drawing.Size(638, 449);
+            this.wpNote.TabIndex = 1;
+            this.wpNote.Text = "Aggiunta di note";
             // 
             // groupBox4
             // 
@@ -576,30 +602,10 @@
             this.groupBox4.Controls.Add(this.checkBox1);
             this.groupBox4.Location = new System.Drawing.Point(3, 3);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(635, 57);
+            this.groupBox4.Size = new System.Drawing.Size(635, 130);
             this.groupBox4.TabIndex = 0;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Aggiungere Note";
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(7, 23);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(95, 19);
-            this.checkBox1.TabIndex = 0;
-            this.checkBox1.Text = "Nota Tecnica";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            // 
-            // checkBox2
-            // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(123, 23);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(126, 19);
-            this.checkBox2.TabIndex = 1;
-            this.checkBox2.Text = "Nota Commerciale";
-            this.checkBox2.UseVisualStyleBackColor = true;
             // 
             // checkBox3
             // 
@@ -611,11 +617,209 @@
             this.checkBox3.Text = "Nota interpretativa";
             this.checkBox3.UseVisualStyleBackColor = true;
             // 
+            // checkBox2
+            // 
+            this.checkBox2.AutoSize = true;
+            this.checkBox2.Location = new System.Drawing.Point(123, 23);
+            this.checkBox2.Name = "checkBox2";
+            this.checkBox2.Size = new System.Drawing.Size(126, 19);
+            this.checkBox2.TabIndex = 1;
+            this.checkBox2.Text = "Nota Commerciale";
+            this.checkBox2.UseVisualStyleBackColor = true;
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(7, 23);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(95, 19);
+            this.checkBox1.TabIndex = 0;
+            this.checkBox1.Text = "Nota Tecnica";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // wpCondizioniGenerali
+            // 
+            this.wpCondizioniGenerali.Controls.Add(this.textBox9);
+            this.wpCondizioniGenerali.Controls.Add(this.textBox8);
+            this.wpCondizioniGenerali.Controls.Add(this.checkBox4);
+            this.wpCondizioniGenerali.Controls.Add(this.chkACC);
+            this.wpCondizioniGenerali.Controls.Add(this.chkTRA);
+            this.wpCondizioniGenerali.Controls.Add(this.chkINT);
+            this.wpCondizioniGenerali.Controls.Add(this.chkDEV);
+            this.wpCondizioniGenerali.Controls.Add(this.chkFOR);
+            this.wpCondizioniGenerali.Controls.Add(this.chkIMP);
+            this.wpCondizioniGenerali.Controls.Add(this.chkATS);
+            this.wpCondizioniGenerali.Controls.Add(this.chkSOP);
+            this.wpCondizioniGenerali.Controls.Add(this.chkCON);
+            this.wpCondizioniGenerali.Controls.Add(this.chkHWA);
+            this.wpCondizioniGenerali.Controls.Add(this.chkHWO);
+            this.wpCondizioniGenerali.Name = "wpCondizioniGenerali";
+            this.wpCondizioniGenerali.Size = new System.Drawing.Size(638, 445);
+            this.wpCondizioniGenerali.TabIndex = 2;
+            this.wpCondizioniGenerali.Text = "Condizioni generali";
+            // 
+            // checkBox4
+            // 
+            this.checkBox4.AutoSize = true;
+            this.checkBox4.Location = new System.Drawing.Point(3, 330);
+            this.checkBox4.Name = "checkBox4";
+            this.checkBox4.Size = new System.Drawing.Size(113, 19);
+            this.checkBox4.TabIndex = 11;
+            this.checkBox4.Text = "SER - Altri servizi";
+            this.checkBox4.UseVisualStyleBackColor = true;
+            // 
+            // chkACC
+            // 
+            this.chkACC.AutoSize = true;
+            this.chkACC.Location = new System.Drawing.Point(3, 221);
+            this.chkACC.Name = "chkACC";
+            this.chkACC.Size = new System.Drawing.Size(148, 19);
+            this.chkACC.TabIndex = 10;
+            this.chkACC.Text = "ACC - Accessori e Varie";
+            this.chkACC.UseVisualStyleBackColor = true;
+            // 
+            // chkTRA
+            // 
+            this.chkTRA.AutoSize = true;
+            this.chkTRA.Location = new System.Drawing.Point(3, 200);
+            this.chkTRA.Name = "chkTRA";
+            this.chkTRA.Size = new System.Drawing.Size(105, 19);
+            this.chkTRA.TabIndex = 9;
+            this.chkTRA.Text = "TRA - Trasporti";
+            this.chkTRA.UseVisualStyleBackColor = true;
+            // 
+            // chkINT
+            // 
+            this.chkINT.AutoSize = true;
+            this.chkINT.Location = new System.Drawing.Point(3, 180);
+            this.chkINT.Name = "chkINT";
+            this.chkINT.Size = new System.Drawing.Size(133, 19);
+            this.chkINT.TabIndex = 8;
+            this.chkINT.Text = "INT - Servizi Internet";
+            this.chkINT.UseVisualStyleBackColor = true;
+            // 
+            // chkDEV
+            // 
+            this.chkDEV.AutoSize = true;
+            this.chkDEV.Location = new System.Drawing.Point(3, 160);
+            this.chkDEV.Name = "chkDEV";
+            this.chkDEV.Size = new System.Drawing.Size(311, 19);
+            this.chkDEV.TabIndex = 7;
+            this.chkDEV.Text = "DEV - Software personalizzati (include servizi  “MASP”)";
+            this.chkDEV.UseVisualStyleBackColor = true;
+            // 
+            // chkFOR
+            // 
+            this.chkFOR.AutoSize = true;
+            this.chkFOR.Location = new System.Drawing.Point(3, 140);
+            this.chkFOR.Name = "chkFOR";
+            this.chkFOR.Size = new System.Drawing.Size(437, 19);
+            this.chkFOR.TabIndex = 6;
+            this.chkFOR.Text = "FOR - Formazione  (include anche servizi di “UNICA” , “MODULA” e “OMNIA”)";
+            this.chkFOR.UseVisualStyleBackColor = true;
+            // 
+            // chkIMP
+            // 
+            this.chkIMP.AutoSize = true;
+            this.chkIMP.Location = new System.Drawing.Point(3, 120);
+            this.chkIMP.Name = "chkIMP";
+            this.chkIMP.Size = new System.Drawing.Size(440, 19);
+            this.chkIMP.TabIndex = 5;
+            this.chkIMP.Text = "IMP – Impiantistica (include anche servizi di “UNICA” , “MODULA” e “OMNIA”)";
+            this.chkIMP.UseVisualStyleBackColor = true;
+            // 
+            // chkATS
+            // 
+            this.chkATS.CheckAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.chkATS.Location = new System.Drawing.Point(3, 78);
+            this.chkATS.Name = "chkATS";
+            this.chkATS.Size = new System.Drawing.Size(427, 41);
+            this.chkATS.TabIndex = 4;
+            this.chkATS.Text = "ATS - Servizi di assistenza e consulenza tecnica e sistemistica (include anche se" +
+    "rvizi di “UNICA” , “MODULA” e “OMNIA”)";
+            this.chkATS.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.chkATS.UseVisualStyleBackColor = true;
+            // 
+            // chkSOP
+            // 
+            this.chkSOP.AutoSize = true;
+            this.chkSOP.Location = new System.Drawing.Point(3, 58);
+            this.chkSOP.Name = "chkSOP";
+            this.chkSOP.Size = new System.Drawing.Size(306, 19);
+            this.chkSOP.TabIndex = 3;
+            this.chkSOP.Text = "SOP - Vendita prodotti software OEM o pacchettizzati";
+            this.chkSOP.UseVisualStyleBackColor = true;
+            // 
+            // chkCON
+            // 
+            this.chkCON.AutoSize = true;
+            this.chkCON.Location = new System.Drawing.Point(3, 38);
+            this.chkCON.Name = "chkCON";
+            this.chkCON.Size = new System.Drawing.Size(272, 19);
+            this.chkCON.TabIndex = 2;
+            this.chkCON.Text = "CON -  Vendita ricambi e materiali di consumo";
+            this.chkCON.UseVisualStyleBackColor = true;
+            // 
+            // chkHWA
+            // 
+            this.chkHWA.AutoSize = true;
+            this.chkHWA.Location = new System.Drawing.Point(3, 18);
+            this.chkHWA.Name = "chkHWA";
+            this.chkHWA.Size = new System.Drawing.Size(387, 19);
+            this.chkHWA.TabIndex = 1;
+            this.chkHWA.Text = "HWA -  ACC - Vendita prodotti hardware e accessori prodotti da terzi";
+            this.chkHWA.UseVisualStyleBackColor = true;
+            // 
+            // chkHWO
+            // 
+            this.chkHWO.AutoSize = true;
+            this.chkHWO.Location = new System.Drawing.Point(3, -2);
+            this.chkHWO.Name = "chkHWO";
+            this.chkHWO.Size = new System.Drawing.Size(234, 19);
+            this.chkHWO.TabIndex = 0;
+            this.chkHWO.Text = "HWO - Vendita prodotti Hardware OEM";
+            this.chkHWO.UseVisualStyleBackColor = true;
+            // 
+            // textBox8
+            // 
+            this.textBox8.Enabled = false;
+            this.textBox8.Location = new System.Drawing.Point(3, 241);
+            this.textBox8.Multiline = true;
+            this.textBox8.Name = "textBox8";
+            this.textBox8.Size = new System.Drawing.Size(605, 77);
+            this.textBox8.TabIndex = 12;
+            // 
+            // textBox9
+            // 
+            this.textBox9.Enabled = false;
+            this.textBox9.Location = new System.Drawing.Point(3, 350);
+            this.textBox9.Multiline = true;
+            this.textBox9.Name = "textBox9";
+            this.textBox9.Size = new System.Drawing.Size(605, 75);
+            this.textBox9.TabIndex = 13;
+            // 
+            // comboBox8
+            // 
+            this.comboBox8.FormattingEnabled = true;
+            this.comboBox8.Location = new System.Drawing.Point(137, 112);
+            this.comboBox8.Name = "comboBox8";
+            this.comboBox8.Size = new System.Drawing.Size(247, 23);
+            this.comboBox8.TabIndex = 18;
+            // 
+            // btnAggiungiProgetto
+            // 
+            this.btnAggiungiProgetto.Location = new System.Drawing.Point(391, 112);
+            this.btnAggiungiProgetto.Name = "btnAggiungiProgetto";
+            this.btnAggiungiProgetto.Size = new System.Drawing.Size(139, 23);
+            this.btnAggiungiProgetto.TabIndex = 19;
+            this.btnAggiungiProgetto.Text = "Aggiungi Progetto";
+            this.btnAggiungiProgetto.UseVisualStyleBackColor = true;
+            // 
             // frmGenerazioneTemplateFattura
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(688, 601);
+            this.ClientSize = new System.Drawing.Size(685, 599);
             this.Controls.Add(this.wizardControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
@@ -626,16 +830,18 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Generazione Template Fattura";
             ((System.ComponentModel.ISupportInitialize)(this.wizardControl1)).EndInit();
-            this.wizardPage1.ResumeLayout(false);
+            this.wpDatiDocumento.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.wizardPage2.ResumeLayout(false);
+            this.wpNote.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
+            this.wpCondizioniGenerali.ResumeLayout(false);
+            this.wpCondizioniGenerali.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -643,7 +849,7 @@
         #endregion
 
         private AeroWizard.WizardControl wizardControl1;
-        private AeroWizard.WizardPage wizardPage1;
+        private AeroWizard.WizardPage wpDatiDocumento;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.DateTimePicker txtDataProtocollo;
         private System.Windows.Forms.Label lblDataProtocollo;
@@ -657,7 +863,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox txtProgetto;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtPersonaDiRiferimento;
         private System.Windows.Forms.Label label6;
@@ -692,10 +897,28 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.MaskedTextBox maskedTextBox2;
         private System.Windows.Forms.Label label16;
-        private AeroWizard.WizardPage wizardPage2;
+        private AeroWizard.WizardPage wpNote;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.CheckBox checkBox3;
         private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.Button btnSeleziona;
+        private AeroWizard.WizardPage wpCondizioniGenerali;
+        private System.Windows.Forms.CheckBox chkTRA;
+        private System.Windows.Forms.CheckBox chkINT;
+        private System.Windows.Forms.CheckBox chkDEV;
+        private System.Windows.Forms.CheckBox chkFOR;
+        private System.Windows.Forms.CheckBox chkIMP;
+        private System.Windows.Forms.CheckBox chkATS;
+        private System.Windows.Forms.CheckBox chkSOP;
+        private System.Windows.Forms.CheckBox chkCON;
+        private System.Windows.Forms.CheckBox chkHWA;
+        private System.Windows.Forms.CheckBox chkHWO;
+        private System.Windows.Forms.CheckBox checkBox4;
+        private System.Windows.Forms.CheckBox chkACC;
+        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.Button btnAggiungiProgetto;
+        private System.Windows.Forms.ComboBox comboBox8;
     }
 }
