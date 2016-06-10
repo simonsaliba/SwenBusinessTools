@@ -117,8 +117,8 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="txtNotatecnica.Text" xml:space="preserve">
-    <value>La presente configurazione è prevista per 14 varchi / 14 lettori (1 varco bidirezionale conta per 2) e si può espandere fino a 16 varchi / 16 lettori aggiungendo un modulo di espansione con tutti i componenti (id# 2.xx). Ulteriori espansioni richiedono l’aggiunta di una ulteriore unità centrale (id# 1.xx)</value>
+  <data name="txtNotaCommerciale.Text" xml:space="preserve">
+    <value>Le spese e materiale di installazione saranno quotati separatamente previo sopralluogo. La configurazione del software di gestione sarà effettuata nel quadro dell’attuale contratto di assistenza e manutenzione ed è stimato in una giornata lavorativa.</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="wizardOffertaEconomica.TitleIcon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -309,5 +309,8 @@
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=
 </value>
+  </data>
+  <data name="txtNotatecnica.Text" xml:space="preserve">
+    <value>La presente configurazione è prevista per 14 varchi / 14 lettori (1 varco bidirezionale conta per 2) e si può espandere fino a 16 varchi / 16 lettori aggiungendo un modulo di espansione con tutti i componenti (id# 2.xx). Ulteriori espansioni richiedono l’aggiunta di una ulteriore unità centrale (id# 1.xx)</value>
   </data>
 </root>

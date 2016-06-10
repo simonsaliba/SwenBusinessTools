@@ -667,8 +667,7 @@
             this.txtNotaCommerciale.Name = "txtNotaCommerciale";
             this.txtNotaCommerciale.Size = new System.Drawing.Size(606, 85);
             this.txtNotaCommerciale.TabIndex = 0;
-            this.txtNotaCommerciale.Text = "Le spese e materiale di installazione saranno quotati separatamente previo sopral" +
-    "luogo.";
+            this.txtNotaCommerciale.Text = resources.GetString("txtNotaCommerciale.Text");
             // 
             // groupBox4
             // 
