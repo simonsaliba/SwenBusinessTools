@@ -42,10 +42,12 @@
             this.separator2 = this.Factory.CreateRibbonSeparator();
             this.grpImpostazioni = this.Factory.CreateRibbonGroup();
             this.group1 = this.Factory.CreateRibbonGroup();
+            this.group2 = this.Factory.CreateRibbonGroup();
             this.gryTemplates = this.Factory.CreateRibbonGallery();
             this.btnApri = this.Factory.CreateRibbonButton();
             this.btnSalvaCopia = this.Factory.CreateRibbonButton();
             this.btnSalvaVersione = this.Factory.CreateRibbonButton();
+            this.btnAggiungiProgetti = this.Factory.CreateRibbonButton();
             this.button1 = this.Factory.CreateRibbonButton();
             this.button3 = this.Factory.CreateRibbonButton();
             this.btnChiudiDocumentoAttivo = this.Factory.CreateRibbonButton();
@@ -53,12 +55,14 @@
             this.grpGenerale.SuspendLayout();
             this.grpImpostazioni.SuspendLayout();
             this.group1.SuspendLayout();
+            this.group2.SuspendLayout();
             this.SuspendLayout();
             // 
             // tab1
             // 
             this.tab1.ControlId.ControlIdType = Microsoft.Office.Tools.Ribbon.RibbonControlIdType.Office;
             this.tab1.Groups.Add(this.grpGenerale);
+            this.tab1.Groups.Add(this.group2);
             this.tab1.Groups.Add(this.grpImpostazioni);
             this.tab1.Groups.Add(this.group1);
             this.tab1.Label = "SWEN Tools";
@@ -97,6 +101,12 @@
             this.group1.Items.Add(this.btnChiudiDocumentoAttivo);
             this.group1.Label = "Chiudi";
             this.group1.Name = "group1";
+            // 
+            // group2
+            // 
+            this.group2.Items.Add(this.btnAggiungiProgetti);
+            this.group2.Label = "Gestione Progetti";
+            this.group2.Name = "group2";
             // 
             // gryTemplates
             // 
@@ -141,6 +151,15 @@
             this.btnSalvaVersione.ShowImage = true;
             this.btnSalvaVersione.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.button3_Click);
             // 
+            // btnAggiungiProgetti
+            // 
+            this.btnAggiungiProgetti.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
+            this.btnAggiungiProgetti.Label = "Aggiungi Progetto";
+            this.btnAggiungiProgetti.Name = "btnAggiungiProgetti";
+            this.btnAggiungiProgetti.OfficeImageId = "MicrosoftProject";
+            this.btnAggiungiProgetti.ShowImage = true;
+            this.btnAggiungiProgetti.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btnAggiungiProgetti_Click);
+            // 
             // button1
             // 
             this.button1.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
@@ -179,6 +198,8 @@
             this.grpImpostazioni.PerformLayout();
             this.group1.ResumeLayout(false);
             this.group1.PerformLayout();
+            this.group2.ResumeLayout(false);
+            this.group2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -198,6 +219,8 @@
         internal Microsoft.Office.Tools.Ribbon.RibbonButton button1;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton button3;
         internal Microsoft.Office.Tools.Ribbon.RibbonGallery gryTemplates;
+        internal Microsoft.Office.Tools.Ribbon.RibbonGroup group2;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton btnAggiungiProgetti;
     }
 
     partial class ThisRibbonCollection

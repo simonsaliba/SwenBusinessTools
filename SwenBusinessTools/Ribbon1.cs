@@ -123,5 +123,11 @@ namespace SwenBusinessTools
 
             }
         }
+
+        private void btnAggiungiProgetti_Click(object sender, RibbonControlEventArgs e)
+        {
+            var progetto = new frmAggiungiProgetto();
+            progetto.Show();
+        }
     }
 }
