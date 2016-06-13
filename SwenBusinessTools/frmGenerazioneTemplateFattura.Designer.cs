@@ -32,7 +32,6 @@
             this.wizardOffertaEconomica = new AeroWizard.WizardControl();
             this.wpDatiDocumento = new AeroWizard.WizardPage();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.btnAggiungiProgetto = new System.Windows.Forms.Button();
             this.cboProgetti = new System.Windows.Forms.ComboBox();
             this.lblProgetto = new System.Windows.Forms.Label();
             this.txtPersonaDiRiferimento = new System.Windows.Forms.TextBox();
@@ -84,15 +83,17 @@
             this.wpNote = new AeroWizard.WizardPage();
             this.chkAggiungiLeggendaCategorie = new System.Windows.Forms.CheckBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.chkNotaInterpretativa = new System.Windows.Forms.CheckBox();
+            this.txtNotaInterpretativa = new System.Windows.Forms.TextBox();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.chkNotaCommerciale = new System.Windows.Forms.CheckBox();
             this.txtNotaCommerciale = new System.Windows.Forms.TextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.chkAggiungiNotaTecnica = new System.Windows.Forms.CheckBox();
             this.txtNotatecnica = new System.Windows.Forms.TextBox();
             this.wpCondizioniGenerali = new AeroWizard.WizardPage();
             this.txtSER = new System.Windows.Forms.TextBox();
-            this.txtACC = new System.Windows.Forms.TextBox();
             this.chkSER = new System.Windows.Forms.CheckBox();
-            this.chkACC = new System.Windows.Forms.CheckBox();
             this.chkTRA = new System.Windows.Forms.CheckBox();
             this.chkINT = new System.Windows.Forms.CheckBox();
             this.chkDEV = new System.Windows.Forms.CheckBox();
@@ -103,10 +104,11 @@
             this.chkCON = new System.Windows.Forms.CheckBox();
             this.chkHWA = new System.Windows.Forms.CheckBox();
             this.chkHWO = new System.Windows.Forms.CheckBox();
-            this.txtNotaInterpretativa = new System.Windows.Forms.TextBox();
-            this.chkAggiungiNotaTecnica = new System.Windows.Forms.CheckBox();
-            this.chkNotaCommerciale = new System.Windows.Forms.CheckBox();
-            this.chkNotaInterpretativa = new System.Windows.Forms.CheckBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.wpCondizioniSpeciali = new AeroWizard.WizardPage();
+            this.txtCondizioniSpeciali = new System.Windows.Forms.TextBox();
+            this.chkCondizioniSpeciali = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.wizardOffertaEconomica)).BeginInit();
             this.wpDatiDocumento.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -117,6 +119,7 @@
             this.groupBox7.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.wpCondizioniGenerali.SuspendLayout();
+            this.wpCondizioniSpeciali.SuspendLayout();
             this.SuspendLayout();
             // 
             // wizardOffertaEconomica
@@ -131,6 +134,7 @@
             this.wizardOffertaEconomica.NextButtonText = "&Successivo";
             this.wizardOffertaEconomica.Pages.Add(this.wpDatiDocumento);
             this.wizardOffertaEconomica.Pages.Add(this.wpNote);
+            this.wizardOffertaEconomica.Pages.Add(this.wpCondizioniSpeciali);
             this.wizardOffertaEconomica.Pages.Add(this.wpCondizioniGenerali);
             this.wizardOffertaEconomica.Size = new System.Drawing.Size(685, 599);
             this.wizardOffertaEconomica.TabIndex = 0;
@@ -148,11 +152,10 @@
             this.wpDatiDocumento.Name = "wpDatiDocumento";
             this.wpDatiDocumento.Size = new System.Drawing.Size(638, 445);
             this.wpDatiDocumento.TabIndex = 0;
-            this.wpDatiDocumento.Text = "Inserimento dati documento";
+            this.wpDatiDocumento.Text = "Inserimento dati";
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.btnAggiungiProgetto);
             this.groupBox3.Controls.Add(this.cboProgetti);
             this.groupBox3.Controls.Add(this.lblProgetto);
             this.groupBox3.Controls.Add(this.txtPersonaDiRiferimento);
@@ -173,15 +176,6 @@
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Riferimenti";
-            // 
-            // btnAggiungiProgetto
-            // 
-            this.btnAggiungiProgetto.Location = new System.Drawing.Point(391, 112);
-            this.btnAggiungiProgetto.Name = "btnAggiungiProgetto";
-            this.btnAggiungiProgetto.Size = new System.Drawing.Size(139, 23);
-            this.btnAggiungiProgetto.TabIndex = 19;
-            this.btnAggiungiProgetto.Text = "Aggiungi Progetto";
-            this.btnAggiungiProgetto.UseVisualStyleBackColor = true;
             // 
             // cboProgetti
             // 
@@ -204,7 +198,7 @@
             // 
             this.txtPersonaDiRiferimento.Location = new System.Drawing.Point(137, 81);
             this.txtPersonaDiRiferimento.Name = "txtPersonaDiRiferimento";
-            this.txtPersonaDiRiferimento.Size = new System.Drawing.Size(135, 23);
+            this.txtPersonaDiRiferimento.Size = new System.Drawing.Size(247, 23);
             this.txtPersonaDiRiferimento.TabIndex = 11;
             // 
             // lblPersonaRiferimento
@@ -445,6 +439,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.txtTitoloDelDocumento);
             this.groupBox1.Controls.Add(this.lblTitoloDelDocumento);
             this.groupBox1.Controls.Add(this.cblTipoOfferta);
@@ -467,7 +463,7 @@
             this.groupBox1.Size = new System.Drawing.Size(635, 134);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Dati Documento";
+            this.groupBox1.Text = "Dati Offerta";
             // 
             // txtTitoloDelDocumento
             // 
@@ -601,7 +597,7 @@
             this.txtIdentificativoDocumento.Location = new System.Drawing.Point(159, 104);
             this.txtIdentificativoDocumento.Mask = ">AAA.>AAA.>AAA.00000000.AAA.00.00";
             this.txtIdentificativoDocumento.Name = "txtIdentificativoDocumento";
-            this.txtIdentificativoDocumento.Size = new System.Drawing.Size(265, 23);
+            this.txtIdentificativoDocumento.Size = new System.Drawing.Size(201, 23);
             this.txtIdentificativoDocumento.TabIndex = 3;
             // 
             // lblIdentificativoDocumento
@@ -646,6 +642,29 @@
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Nota interpretativa";
             // 
+            // chkNotaInterpretativa
+            // 
+            this.chkNotaInterpretativa.AutoSize = true;
+            this.chkNotaInterpretativa.Location = new System.Drawing.Point(5, 22);
+            this.chkNotaInterpretativa.Name = "chkNotaInterpretativa";
+            this.chkNotaInterpretativa.Size = new System.Drawing.Size(175, 19);
+            this.chkNotaInterpretativa.TabIndex = 3;
+            this.chkNotaInterpretativa.Text = "Aggiungi nota interpretativa";
+            this.chkNotaInterpretativa.UseVisualStyleBackColor = true;
+            this.chkNotaInterpretativa.CheckedChanged += new System.EventHandler(this.chkNotaInterpretativa_CheckedChanged);
+            // 
+            // txtNotaInterpretativa
+            // 
+            this.txtNotaInterpretativa.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.txtNotaInterpretativa.Enabled = false;
+            this.txtNotaInterpretativa.Location = new System.Drawing.Point(5, 44);
+            this.txtNotaInterpretativa.Multiline = true;
+            this.txtNotaInterpretativa.Name = "txtNotaInterpretativa";
+            this.txtNotaInterpretativa.Size = new System.Drawing.Size(606, 103);
+            this.txtNotaInterpretativa.TabIndex = 1;
+            this.txtNotaInterpretativa.Text = "Le spese e materiale di installazione saranno quotati separatamente previo sopral" +
+    "luogo.";
+            // 
             // groupBox7
             // 
             this.groupBox7.Controls.Add(this.chkNotaCommerciale);
@@ -657,6 +676,17 @@
             this.groupBox7.TabIndex = 3;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Nota commerciale";
+            // 
+            // chkNotaCommerciale
+            // 
+            this.chkNotaCommerciale.AutoSize = true;
+            this.chkNotaCommerciale.Location = new System.Drawing.Point(6, 21);
+            this.chkNotaCommerciale.Name = "chkNotaCommerciale";
+            this.chkNotaCommerciale.Size = new System.Drawing.Size(174, 19);
+            this.chkNotaCommerciale.TabIndex = 2;
+            this.chkNotaCommerciale.Text = "Aggiungi nota commerciale";
+            this.chkNotaCommerciale.UseVisualStyleBackColor = true;
+            this.chkNotaCommerciale.CheckedChanged += new System.EventHandler(this.chkNotaCommerciale_CheckedChanged);
             // 
             // txtNotaCommerciale
             // 
@@ -681,6 +711,17 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Nota tecnica";
             // 
+            // chkAggiungiNotaTecnica
+            // 
+            this.chkAggiungiNotaTecnica.AutoSize = true;
+            this.chkAggiungiNotaTecnica.Location = new System.Drawing.Point(6, 18);
+            this.chkAggiungiNotaTecnica.Name = "chkAggiungiNotaTecnica";
+            this.chkAggiungiNotaTecnica.Size = new System.Drawing.Size(143, 19);
+            this.chkAggiungiNotaTecnica.TabIndex = 1;
+            this.chkAggiungiNotaTecnica.Text = "Aggiungi nota tecnica";
+            this.chkAggiungiNotaTecnica.UseVisualStyleBackColor = true;
+            this.chkAggiungiNotaTecnica.CheckedChanged += new System.EventHandler(this.chkAggiungiNotaTecnica_CheckedChanged);
+            // 
             // txtNotatecnica
             // 
             this.txtNotatecnica.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -695,9 +736,7 @@
             // wpCondizioniGenerali
             // 
             this.wpCondizioniGenerali.Controls.Add(this.txtSER);
-            this.wpCondizioniGenerali.Controls.Add(this.txtACC);
             this.wpCondizioniGenerali.Controls.Add(this.chkSER);
-            this.wpCondizioniGenerali.Controls.Add(this.chkACC);
             this.wpCondizioniGenerali.Controls.Add(this.chkTRA);
             this.wpCondizioniGenerali.Controls.Add(this.chkINT);
             this.wpCondizioniGenerali.Controls.Add(this.chkDEV);
@@ -716,42 +755,22 @@
             // txtSER
             // 
             this.txtSER.Enabled = false;
-            this.txtSER.Location = new System.Drawing.Point(3, 350);
+            this.txtSER.Location = new System.Drawing.Point(3, 245);
             this.txtSER.Multiline = true;
             this.txtSER.Name = "txtSER";
-            this.txtSER.Size = new System.Drawing.Size(605, 75);
+            this.txtSER.Size = new System.Drawing.Size(605, 183);
             this.txtSER.TabIndex = 13;
-            // 
-            // txtACC
-            // 
-            this.txtACC.Enabled = false;
-            this.txtACC.Location = new System.Drawing.Point(3, 241);
-            this.txtACC.Multiline = true;
-            this.txtACC.Name = "txtACC";
-            this.txtACC.Size = new System.Drawing.Size(605, 77);
-            this.txtACC.TabIndex = 12;
             // 
             // chkSER
             // 
             this.chkSER.AutoSize = true;
-            this.chkSER.Location = new System.Drawing.Point(3, 330);
+            this.chkSER.Location = new System.Drawing.Point(3, 225);
             this.chkSER.Name = "chkSER";
-            this.chkSER.Size = new System.Drawing.Size(113, 19);
+            this.chkSER.Size = new System.Drawing.Size(83, 19);
             this.chkSER.TabIndex = 11;
-            this.chkSER.Text = "SER - Altri servizi";
+            this.chkSER.Text = "Altri servizi";
             this.chkSER.UseVisualStyleBackColor = true;
             this.chkSER.CheckedChanged += new System.EventHandler(this.chkSER_CheckedChanged);
-            // 
-            // chkACC
-            // 
-            this.chkACC.AutoSize = true;
-            this.chkACC.Location = new System.Drawing.Point(3, 221);
-            this.chkACC.Name = "chkACC";
-            this.chkACC.Size = new System.Drawing.Size(148, 19);
-            this.chkACC.TabIndex = 10;
-            this.chkACC.Text = "ACC - Accessori e Varie";
-            this.chkACC.UseVisualStyleBackColor = true;
-            this.chkACC.CheckedChanged += new System.EventHandler(this.chkACC_CheckedChanged);
             // 
             // chkTRA
             // 
@@ -855,50 +874,49 @@
             this.chkHWO.Text = "HWO - Vendita prodotti Hardware OEM";
             this.chkHWO.UseVisualStyleBackColor = true;
             // 
-            // txtNotaInterpretativa
+            // textBox1
             // 
-            this.txtNotaInterpretativa.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.txtNotaInterpretativa.Enabled = false;
-            this.txtNotaInterpretativa.Location = new System.Drawing.Point(5, 44);
-            this.txtNotaInterpretativa.Multiline = true;
-            this.txtNotaInterpretativa.Name = "txtNotaInterpretativa";
-            this.txtNotaInterpretativa.Size = new System.Drawing.Size(606, 103);
-            this.txtNotaInterpretativa.TabIndex = 1;
-            this.txtNotaInterpretativa.Text = "Le spese e materiale di installazione saranno quotati separatamente previo sopral" +
-    "luogo.";
+            this.textBox1.Location = new System.Drawing.Point(533, 104);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(95, 23);
+            this.textBox1.TabIndex = 21;
             // 
-            // chkAggiungiNotaTecnica
+            // label1
             // 
-            this.chkAggiungiNotaTecnica.AutoSize = true;
-            this.chkAggiungiNotaTecnica.Location = new System.Drawing.Point(6, 18);
-            this.chkAggiungiNotaTecnica.Name = "chkAggiungiNotaTecnica";
-            this.chkAggiungiNotaTecnica.Size = new System.Drawing.Size(143, 19);
-            this.chkAggiungiNotaTecnica.TabIndex = 1;
-            this.chkAggiungiNotaTecnica.Text = "Aggiungi nota tecnica";
-            this.chkAggiungiNotaTecnica.UseVisualStyleBackColor = true;
-            this.chkAggiungiNotaTecnica.CheckedChanged += new System.EventHandler(this.chkAggiungiNotaTecnica_CheckedChanged);
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(397, 108);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(130, 15);
+            this.label1.TabIndex = 20;
+            this.label1.Text = "Validità offerta in giorni";
             // 
-            // chkNotaCommerciale
+            // wpCondizioniSpeciali
             // 
-            this.chkNotaCommerciale.AutoSize = true;
-            this.chkNotaCommerciale.Location = new System.Drawing.Point(6, 21);
-            this.chkNotaCommerciale.Name = "chkNotaCommerciale";
-            this.chkNotaCommerciale.Size = new System.Drawing.Size(174, 19);
-            this.chkNotaCommerciale.TabIndex = 2;
-            this.chkNotaCommerciale.Text = "Aggiungi nota commerciale";
-            this.chkNotaCommerciale.UseVisualStyleBackColor = true;
-            this.chkNotaCommerciale.CheckedChanged += new System.EventHandler(this.chkNotaCommerciale_CheckedChanged);
+            this.wpCondizioniSpeciali.Controls.Add(this.txtCondizioniSpeciali);
+            this.wpCondizioniSpeciali.Controls.Add(this.chkCondizioniSpeciali);
+            this.wpCondizioniSpeciali.Name = "wpCondizioniSpeciali";
+            this.wpCondizioniSpeciali.Size = new System.Drawing.Size(638, 445);
+            this.wpCondizioniSpeciali.TabIndex = 3;
+            this.wpCondizioniSpeciali.Text = "Condizioni speciali";
             // 
-            // chkNotaInterpretativa
+            // txtCondizioniSpeciali
             // 
-            this.chkNotaInterpretativa.AutoSize = true;
-            this.chkNotaInterpretativa.Location = new System.Drawing.Point(5, 22);
-            this.chkNotaInterpretativa.Name = "chkNotaInterpretativa";
-            this.chkNotaInterpretativa.Size = new System.Drawing.Size(175, 19);
-            this.chkNotaInterpretativa.TabIndex = 3;
-            this.chkNotaInterpretativa.Text = "Aggiungi nota interpretativa";
-            this.chkNotaInterpretativa.UseVisualStyleBackColor = true;
-            this.chkNotaInterpretativa.CheckedChanged += new System.EventHandler(this.chkNotaInterpretativa_CheckedChanged);
+            this.txtCondizioniSpeciali.Enabled = false;
+            this.txtCondizioniSpeciali.Location = new System.Drawing.Point(3, 23);
+            this.txtCondizioniSpeciali.Multiline = true;
+            this.txtCondizioniSpeciali.Name = "txtCondizioniSpeciali";
+            this.txtCondizioniSpeciali.Size = new System.Drawing.Size(605, 419);
+            this.txtCondizioniSpeciali.TabIndex = 15;
+            // 
+            // chkCondizioniSpeciali
+            // 
+            this.chkCondizioniSpeciali.AutoSize = true;
+            this.chkCondizioniSpeciali.Location = new System.Drawing.Point(3, 3);
+            this.chkCondizioniSpeciali.Name = "chkCondizioniSpeciali";
+            this.chkCondizioniSpeciali.Size = new System.Drawing.Size(125, 19);
+            this.chkCondizioniSpeciali.TabIndex = 14;
+            this.chkCondizioniSpeciali.Text = "Condizioni speciali";
+            this.chkCondizioniSpeciali.UseVisualStyleBackColor = true;
             // 
             // frmGenerazioneTemplateFattura
             // 
@@ -932,6 +950,8 @@
             this.groupBox4.PerformLayout();
             this.wpCondizioniGenerali.ResumeLayout(false);
             this.wpCondizioniGenerali.PerformLayout();
+            this.wpCondizioniSpeciali.ResumeLayout(false);
+            this.wpCondizioniSpeciali.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1001,10 +1021,7 @@
         private System.Windows.Forms.CheckBox chkHWA;
         private System.Windows.Forms.CheckBox chkHWO;
         private System.Windows.Forms.CheckBox chkSER;
-        private System.Windows.Forms.CheckBox chkACC;
         private System.Windows.Forms.TextBox txtSER;
-        private System.Windows.Forms.TextBox txtACC;
-        private System.Windows.Forms.Button btnAggiungiProgetto;
         private System.Windows.Forms.ComboBox cboProgetti;
         private System.Windows.Forms.CheckBox chkAggiungiLeggendaCategorie;
         private System.Windows.Forms.GroupBox groupBox5;
@@ -1016,5 +1033,10 @@
         private System.Windows.Forms.CheckBox chkAggiungiNotaTecnica;
         private System.Windows.Forms.CheckBox chkNotaCommerciale;
         private System.Windows.Forms.CheckBox chkNotaInterpretativa;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label1;
+        private AeroWizard.WizardPage wpCondizioniSpeciali;
+        private System.Windows.Forms.TextBox txtCondizioniSpeciali;
+        private System.Windows.Forms.CheckBox chkCondizioniSpeciali;
     }
 }

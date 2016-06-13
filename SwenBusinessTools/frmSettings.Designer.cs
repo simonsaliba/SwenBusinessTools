@@ -52,13 +52,13 @@
             this.txtSelectedFolderPath.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSelectedFolderPath.Location = new System.Drawing.Point(3, 3);
             this.txtSelectedFolderPath.Name = "txtSelectedFolderPath";
-            this.txtSelectedFolderPath.Size = new System.Drawing.Size(436, 21);
+            this.txtSelectedFolderPath.Size = new System.Drawing.Size(435, 21);
             this.txtSelectedFolderPath.TabIndex = 0;
             // 
             // btnSelectFolder
             // 
             this.btnSelectFolder.AutoEllipsis = true;
-            this.btnSelectFolder.Location = new System.Drawing.Point(445, 3);
+            this.btnSelectFolder.Location = new System.Drawing.Point(444, 3);
             this.btnSelectFolder.Name = "btnSelectFolder";
             this.btnSelectFolder.Size = new System.Drawing.Size(91, 21);
             this.btnSelectFolder.TabIndex = 1;
