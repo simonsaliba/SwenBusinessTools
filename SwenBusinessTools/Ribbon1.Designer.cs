@@ -43,7 +43,6 @@
             this.group2 = this.Factory.CreateRibbonGroup();
             this.grpImpostazioni = this.Factory.CreateRibbonGroup();
             this.group1 = this.Factory.CreateRibbonGroup();
-            this.group3 = this.Factory.CreateRibbonGroup();
             this.gryTemplates = this.Factory.CreateRibbonGallery();
             this.btnApri = this.Factory.CreateRibbonButton();
             this.btnSalvaCopia = this.Factory.CreateRibbonButton();
@@ -53,13 +52,11 @@
             this.button1 = this.Factory.CreateRibbonButton();
             this.button3 = this.Factory.CreateRibbonButton();
             this.btnChiudiDocumentoAttivo = this.Factory.CreateRibbonButton();
-            this.gallery1 = this.Factory.CreateRibbonGallery();
             this.tab1.SuspendLayout();
             this.grpGenerale.SuspendLayout();
             this.group2.SuspendLayout();
             this.grpImpostazioni.SuspendLayout();
             this.group1.SuspendLayout();
-            this.group3.SuspendLayout();
             this.SuspendLayout();
             // 
             // tab1
@@ -69,7 +66,6 @@
             this.tab1.Groups.Add(this.group2);
             this.tab1.Groups.Add(this.grpImpostazioni);
             this.tab1.Groups.Add(this.group1);
-            this.tab1.Groups.Add(this.group3);
             this.tab1.Label = "SWEN Tools";
             this.tab1.Name = "tab1";
             // 
@@ -113,12 +109,6 @@
             this.group1.Items.Add(this.btnChiudiDocumentoAttivo);
             this.group1.Label = "Chiudi";
             this.group1.Name = "group1";
-            // 
-            // group3
-            // 
-            this.group3.Items.Add(this.gallery1);
-            this.group3.Label = "ImageMSO";
-            this.group3.Name = "group3";
             // 
             // gryTemplates
             // 
@@ -206,13 +196,6 @@
             this.btnChiudiDocumentoAttivo.ShowImage = true;
             this.btnChiudiDocumentoAttivo.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btnChiudi_Click);
             // 
-            // gallery1
-            // 
-            this.gallery1.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
-            this.gallery1.Label = "gallery1";
-            this.gallery1.Name = "gallery1";
-            this.gallery1.ShowImage = true;
-            // 
             // Ribbon1
             // 
             this.Name = "Ribbon1";
@@ -229,8 +212,6 @@
             this.grpImpostazioni.PerformLayout();
             this.group1.ResumeLayout(false);
             this.group1.PerformLayout();
-            this.group3.ResumeLayout(false);
-            this.group3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -253,8 +234,6 @@
         internal Microsoft.Office.Tools.Ribbon.RibbonGroup group2;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton btnAggiungiProgetti;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton btnClienteDestinatari;
-        internal Microsoft.Office.Tools.Ribbon.RibbonGroup group3;
-        internal Microsoft.Office.Tools.Ribbon.RibbonGallery gallery1;
     }
 
     partial class ThisRibbonCollection

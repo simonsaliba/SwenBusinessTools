@@ -123,7 +123,9 @@ namespace SwenBusinessTools
             testoElencoGenerale.Range.InsertBefore("per gli altri acquirenti, che solitamente acquistano con partita IVA, varranno le garanzie di legge di cui agli articoli 1490 e seguenti c.c. (un anno dalla consegna alle condizioni di legge). \n");
             testoElencoGenerale.Range.InsertBefore("Restano in ogni caso fatte salve eventuali deroghe specifiche per prodotto o categoria di prodotti (come di seguito indicato) e le garanzie contrattuali rilasciate direttamente dal produttore.");
 
-
+            Word.Paragraph w1 = document.Paragraphs.Add(testoElencoGenerale.Range);
+            w1.Range.Text = "\n";
+            w1.Range.InsertParagraphAfter();
 
             Word.Table table = document.Tables.Add(testoNotaCommerciale.Range, 5, 2);
             SetTableBolders(table);
