@@ -204,6 +204,12 @@
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="UserControlProgetto.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlProgetto.Designer.cs">
+      <DependentUpon>UserControlProgetto.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="frmAggiungiProgetto.resx">
       <DependentUpon>frmAggiungiProgetto.cs</DependentUpon>
     </EmbeddedResource>
@@ -225,6 +231,9 @@
     </Compile>
     <EmbeddedResource Include="Ribbon1.resx">
       <DependentUpon>Ribbon1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlProgetto.resx">
+      <DependentUpon>UserControlProgetto.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
     <None Include="Properties\Settings.settings">

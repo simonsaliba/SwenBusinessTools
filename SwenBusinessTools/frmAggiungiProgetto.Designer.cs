@@ -28,35 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
+            this.userControlProgetto1 = new SwenBusinessTools.UserControlProgetto();
             this.SuspendLayout();
             // 
-            // button1
+            // userControlProgetto1
             // 
-            this.button1.Location = new System.Drawing.Point(417, 278);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(83, 29);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Salva";
-            this.button1.UseVisualStyleBackColor = true;
+            this.userControlProgetto1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.userControlProgetto1.Location = new System.Drawing.Point(0, 0);
+            this.userControlProgetto1.Name = "userControlProgetto1";
+            this.userControlProgetto1.Size = new System.Drawing.Size(416, 305);
+            this.userControlProgetto1.TabIndex = 0;
             // 
             // frmAggiungiProgetto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(512, 319);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(416, 305);
+            this.Controls.Add(this.userControlProgetto1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmAggiungiProgetto";
             this.ShowInTaskbar = false;
-            this.Text = "Aggiungi progetti";
+            this.Text = "Dati Progetto";
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
+        private UserControlProgetto userControlProgetto1;
     }
 }

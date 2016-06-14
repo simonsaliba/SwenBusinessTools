@@ -15,6 +15,7 @@ namespace SwenBusinessTools
             var styles = document.Styles;
 
             styles.Add("CondizioniGenerali");
+            styles.Add("CondizioniGeneraliNoBold");
             styles.Add("TabellaFirma");
 
             foreach (var style in styles)
@@ -32,14 +33,50 @@ namespace SwenBusinessTools
                     ((Word.Style)style).Font.Bold = 0;
                     ((Word.Style)style).Font.Size = 10f;
                     ((Word.Style)style).Font.Name = "Trebuchet MS";
+                       
+                    //test
+                    //((Word.Style)style).ParagraphFormat.SpaceAfterAuto = 0;
+                    //((Word.Style)style).ParagraphFormat.SpaceBeforeAuto = 0;
+                    //((Word.Style)style).ParagraphFormat.FirstLineIndent = -7f;
+                    //((Word.Style)style).ParagraphFormat.LeftIndent = 7f;
+                    //fine test
+
                     ((Word.Style)style).Font.Color = Word.WdColor.wdColorBlack;
                 }
 
                 if (((Word.Style)style).NameLocal.ToLower() == "condizionigenerali")
                 {
+                    ((Word.Style)style).Font.Bold = 1;
+                    ((Word.Style)style).Font.Size = 8f;
+                    ((Word.Style)style).Font.Name = "Trebuchet MS";
+                    ((Word.Style)style).ParagraphFormat.SpaceAfter = 0F;
+                    ((Word.Style)style).ParagraphFormat.SpaceBefore = 0F;
+                    ((Word.Style)style).Font.Color = Word.WdColor.wdColorBlack;
+                }
+
+                if (((Word.Style)style).NameLocal.ToLower() == "condizionigeneralinobold")
+                {
                     ((Word.Style)style).Font.Bold = 0;
                     ((Word.Style)style).Font.Size = 8f;
                     ((Word.Style)style).Font.Name = "Trebuchet MS";
+
+                    //General
+                    ((Word.Style)style).ParagraphFormat.Alignment = Word.WdParagraphAlignment.wdAlignParagraphJustify;
+                    ((Word.Style)style).ParagraphFormat.OutlineLevel = Word.WdOutlineLevel.wdOutlineLevelBodyText;
+
+                    //Rientri
+                    ((Word.Style)style).ParagraphFormat.SpaceAfterAuto = 0;
+                    ((Word.Style)style).ParagraphFormat.SpaceBeforeAuto = 0;
+                    ((Word.Style)style).ParagraphFormat.FirstLineIndent = -7f;
+                    ((Word.Style)style).ParagraphFormat.LeftIndent = 7f;
+
+                    //Spaziatura
+                    ((Word.Style)style).ParagraphFormat.SpaceAfter = 0F;
+                    ((Word.Style)style).ParagraphFormat.SpaceBefore = 0F;
+                    ((Word.Style)style).ParagraphFormat.LineSpacingRule = Word.WdLineSpacing.wdLineSpaceMultiple;
+                    ((Word.Style)style).ParagraphFormat.LineSpacing = 13.8f;
+
+                    //Color
                     ((Word.Style)style).Font.Color = Word.WdColor.wdColorBlack;
                 }
 
@@ -61,5 +98,6 @@ namespace SwenBusinessTools
             table.Borders.OutsideLineStyle = Word.WdLineStyle.wdLineStyleSingle;
             table.Borders.OutsideColor = (Word.WdColor)(51 + 0x100 * 51 + 0x10000 * 153);
         }
+
     }
 }

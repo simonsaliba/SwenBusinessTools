@@ -13,6 +13,17 @@ namespace SwenBusinessTools
     {
         private void Ribbon1_Load(object sender, RibbonUIEventArgs e)
         {
+            //Microsoft.Office.Tools.Ribbon.RibbonDropDownItem ribbonDropDownItemImpl1 = this.Factory.CreateRibbonDropDownItem();
+
+            //ribbonDropDownItemImpl1.OfficeImageId = Word.
+            //ribbonDropDownItemImpl1.Label = "Offerta Economica";
+            //ribbonDropDownItemImpl1.ScreenTip = "Offerta Economica";
+            //ribbonDropDownItemImpl1.SuperTip = "Template word di offerta economica";
+
+            //this.gryTemplates.Items.Add(ribbonDropDownItemImpl1);
+
+            //gallery1.Items.
+
             
 
         }

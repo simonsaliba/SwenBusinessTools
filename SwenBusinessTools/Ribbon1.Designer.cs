@@ -40,22 +40,26 @@
             this.grpGenerale = this.Factory.CreateRibbonGroup();
             this.separator1 = this.Factory.CreateRibbonSeparator();
             this.separator2 = this.Factory.CreateRibbonSeparator();
+            this.group2 = this.Factory.CreateRibbonGroup();
             this.grpImpostazioni = this.Factory.CreateRibbonGroup();
             this.group1 = this.Factory.CreateRibbonGroup();
-            this.group2 = this.Factory.CreateRibbonGroup();
+            this.group3 = this.Factory.CreateRibbonGroup();
             this.gryTemplates = this.Factory.CreateRibbonGallery();
             this.btnApri = this.Factory.CreateRibbonButton();
             this.btnSalvaCopia = this.Factory.CreateRibbonButton();
             this.btnSalvaVersione = this.Factory.CreateRibbonButton();
             this.btnAggiungiProgetti = this.Factory.CreateRibbonButton();
+            this.btnClienteDestinatari = this.Factory.CreateRibbonButton();
             this.button1 = this.Factory.CreateRibbonButton();
             this.button3 = this.Factory.CreateRibbonButton();
             this.btnChiudiDocumentoAttivo = this.Factory.CreateRibbonButton();
+            this.gallery1 = this.Factory.CreateRibbonGallery();
             this.tab1.SuspendLayout();
             this.grpGenerale.SuspendLayout();
+            this.group2.SuspendLayout();
             this.grpImpostazioni.SuspendLayout();
             this.group1.SuspendLayout();
-            this.group2.SuspendLayout();
+            this.group3.SuspendLayout();
             this.SuspendLayout();
             // 
             // tab1
@@ -65,6 +69,7 @@
             this.tab1.Groups.Add(this.group2);
             this.tab1.Groups.Add(this.grpImpostazioni);
             this.tab1.Groups.Add(this.group1);
+            this.tab1.Groups.Add(this.group3);
             this.tab1.Label = "SWEN Tools";
             this.tab1.Name = "tab1";
             // 
@@ -87,6 +92,13 @@
             // 
             this.separator2.Name = "separator2";
             // 
+            // group2
+            // 
+            this.group2.Items.Add(this.btnAggiungiProgetti);
+            this.group2.Items.Add(this.btnClienteDestinatari);
+            this.group2.Label = "Gestione Anagrafiche";
+            this.group2.Name = "group2";
+            // 
             // grpImpostazioni
             // 
             this.grpImpostazioni.DialogLauncher = ribbonDialogLauncherImpl1;
@@ -102,11 +114,11 @@
             this.group1.Label = "Chiudi";
             this.group1.Name = "group1";
             // 
-            // group2
+            // group3
             // 
-            this.group2.Items.Add(this.btnAggiungiProgetti);
-            this.group2.Label = "Gestione Progetti";
-            this.group2.Name = "group2";
+            this.group3.Items.Add(this.gallery1);
+            this.group3.Label = "ImageMSO";
+            this.group3.Name = "group3";
             // 
             // gryTemplates
             // 
@@ -154,17 +166,26 @@
             // btnAggiungiProgetti
             // 
             this.btnAggiungiProgetti.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
-            this.btnAggiungiProgetti.Label = "Aggiungi Progetto";
+            this.btnAggiungiProgetti.Label = "Progetti";
             this.btnAggiungiProgetti.Name = "btnAggiungiProgetti";
             this.btnAggiungiProgetti.OfficeImageId = "MicrosoftProject";
             this.btnAggiungiProgetti.ShowImage = true;
             this.btnAggiungiProgetti.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btnAggiungiProgetti_Click);
+            // 
+            // btnClienteDestinatari
+            // 
+            this.btnClienteDestinatari.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
+            this.btnClienteDestinatari.Label = "Clienti";
+            this.btnClienteDestinatari.Name = "btnClienteDestinatari";
+            this.btnClienteDestinatari.OfficeImageId = "AccessListContacts";
+            this.btnClienteDestinatari.ShowImage = true;
             // 
             // button1
             // 
             this.button1.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
             this.button1.Label = "button1";
             this.button1.Name = "button1";
+            this.button1.OfficeImageId = "PwaProjectProgressUpdate";
             this.button1.ShowImage = true;
             this.button1.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.button1_Click_1);
             // 
@@ -173,6 +194,7 @@
             this.button3.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
             this.button3.Label = "button3";
             this.button3.Name = "button3";
+            this.button3.OfficeImageId = "ExportOdbcDatabase";
             this.button3.ShowImage = true;
             // 
             // btnChiudiDocumentoAttivo
@@ -184,6 +206,13 @@
             this.btnChiudiDocumentoAttivo.ShowImage = true;
             this.btnChiudiDocumentoAttivo.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.btnChiudi_Click);
             // 
+            // gallery1
+            // 
+            this.gallery1.ControlSize = Microsoft.Office.Core.RibbonControlSize.RibbonControlSizeLarge;
+            this.gallery1.Label = "gallery1";
+            this.gallery1.Name = "gallery1";
+            this.gallery1.ShowImage = true;
+            // 
             // Ribbon1
             // 
             this.Name = "Ribbon1";
@@ -194,12 +223,14 @@
             this.tab1.PerformLayout();
             this.grpGenerale.ResumeLayout(false);
             this.grpGenerale.PerformLayout();
+            this.group2.ResumeLayout(false);
+            this.group2.PerformLayout();
             this.grpImpostazioni.ResumeLayout(false);
             this.grpImpostazioni.PerformLayout();
             this.group1.ResumeLayout(false);
             this.group1.PerformLayout();
-            this.group2.ResumeLayout(false);
-            this.group2.PerformLayout();
+            this.group3.ResumeLayout(false);
+            this.group3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -221,6 +252,9 @@
         internal Microsoft.Office.Tools.Ribbon.RibbonGallery gryTemplates;
         internal Microsoft.Office.Tools.Ribbon.RibbonGroup group2;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton btnAggiungiProgetti;
+        internal Microsoft.Office.Tools.Ribbon.RibbonButton btnClienteDestinatari;
+        internal Microsoft.Office.Tools.Ribbon.RibbonGroup group3;
+        internal Microsoft.Office.Tools.Ribbon.RibbonGallery gallery1;
     }
 
     partial class ThisRibbonCollection

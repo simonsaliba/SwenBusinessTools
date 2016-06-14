@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Word = Microsoft.Office.Interop.Word;
+using Office = Microsoft.Office.Core;
 using static SwenBusinessTools.CustomStyle;
 
 namespace SwenBusinessTools
@@ -94,17 +95,34 @@ namespace SwenBusinessTools
             Word.Paragraph testoGenerali = document.Paragraphs.Add(testoCondizioniGenerali.Range);
             testoGenerali.Range.Text = "Generali:";
             testoGenerali.Range.set_Style("condizionigenerali");
-            testoGenerali.Range.Bold = 1;
             testoGenerali.Range.InsertParagraphAfter();
 
-
             Word.Paragraph testoElencoGenerale = document.Paragraphs.Add(testoGenerali.Range);
-            testoElencoGenerale.Range.ListFormat.ApplyBulletDefault(Word.WdListType.wdListBullet);
-            //testoElencoGenerale.Range.Text = 
-            testoElencoGenerale.Range.set_Style("condizionigenerali");
+            testoElencoGenerale.Range.ListFormat.ApplyBulletDefault();
+            
+            testoElencoGenerale.Range.ParagraphFormat.SpaceAfterAuto = 0;
+            testoElencoGenerale.Range.ParagraphFormat.SpaceBeforeAuto = 0;
+            testoElencoGenerale.Range.ParagraphFormat.FirstLineIndent = -7f;
+            testoElencoGenerale.Range.ParagraphFormat.LeftIndent = 7f;
+            testoElencoGenerale.Range.ParagraphFormat.SpaceAfter = 0F;
+            testoElencoGenerale.Range.ParagraphFormat.SpaceBefore = 0F;
+            testoElencoGenerale.Range.ParagraphFormat.LineSpacingRule = Word.WdLineSpacing.wdLineSpaceMultiple;
+            testoElencoGenerale.Range.ParagraphFormat.LineSpacing = 13.8f;
+            testoElencoGenerale.Range.Font.Bold = 0;
+            testoElencoGenerale.Range.Font.Color = Word.WdColor.wdColorBlack;
 
-            testoElencoGenerale.Range.InsertAfter("I prezzi sono da considerarsi al netto dell'IVA.");
-            testoElencoGenerale.Range.InsertAfter("Il pagamento non potrà comunque essere differito oltre i limiti indicati in fattura a qualunque titolo, incluse eventuali contestazioni o malfunzionamenti anche parziali sia su prodotti SWEN o di terzi, (che vanno comunque disciplinati come interventi in garanzia da ");
+            testoElencoGenerale.Range.InsertBefore("I prezzi sono da considerarsi al netto dell'IVA \n");
+            testoElencoGenerale.Range.InsertBefore("Il pagamento non potrà comunque essere differito oltre i limiti indicati in fattura a qualunque titolo, incluse eventuali contestazioni o malfunzionamenti anche parziali sia su prodotti Swen o di terzi, (che vanno comunque disciplinati come \"interventi in garanzia\", da espletarsi come specificato nel seguito) che sui servizi resi da Swen, per i quali valgono le penali stabilite nei SLA concordati con il Cliente \n");
+            testoElencoGenerale.Range.InsertBefore("Il mancato o ritardato pagamento delle fatture emesse a qualunque titolo nei confronti di un Cliente comporta l’immediata sospensione di servizi e forniture servizio fino a regolarizzazione, fatti salvi eventuali interessi, risarcimenti e danni subiti.\n");
+            testoElencoGenerale.Range.InsertBefore("Eventuali supplementi richiesti dal Cliente (diversi da  quanto specificato nella presente offerta) devono essere comunque disciplinati in separata sede\n");
+            testoElencoGenerale.Range.InsertBefore("La consegna di tutti i beni elencati e comunque il completamento della fornitura è subordinato alla permanenza di disponibilità commerciale dei prodotti offerti. In caso di documentata indisponibilità sul mercato nei tempi stabiliti per la consegna, la SWEN si riserva il diritto di escludere alcuni degli articoli offerti dalla fornitura senza alcuna penale (se non la restituzione di eventuali acconti già versati in proporzione al valore degli articoli non disponibili); qualora l’indisponibilità sia temporanea il Cliente potrà scegliere se attendere la nuova disponibilità o rinunciare agli articoli non disponibili; in caso si indisponibilità permanente è implicita la rinuncia del Cliente\n");
+            testoElencoGenerale.Range.InsertBefore("In presenza di articoli indisponibili, la SWEN si impegna a fornire prodotti alternativi di pari requisiti con offerta separata, a prezzi e condizioni da rinegoziare\n");
+            testoElencoGenerale.Range.InsertBefore("I beni materiali sono coperti da garanzie a norma di legge ed in particolare:\n");
+            testoElencoGenerale.Range.ListFormat.ListIndent();
+            testoElencoGenerale.Range.InsertBefore("per i consumatori, cioè coloro che acquistano per scopi estranei alla propria attività professionale o imprenditoriale, il venditore applicherà il Decreto Legislativo 2 febbraio 2002, n.24. - artt. 1519-bis e seguenti c.c. - (due anni dalla consegna alle condizioni di legge); \n");
+            testoElencoGenerale.Range.InsertBefore("per gli altri acquirenti, che solitamente acquistano con partita IVA, varranno le garanzie di legge di cui agli articoli 1490 e seguenti c.c. (un anno dalla consegna alle condizioni di legge). \n");
+            testoElencoGenerale.Range.InsertBefore("Restano in ogni caso fatte salve eventuali deroghe specifiche per prodotto o categoria di prodotti (come di seguito indicato) e le garanzie contrattuali rilasciate direttamente dal produttore.");
+
 
 
             Word.Table table = document.Tables.Add(testoNotaCommerciale.Range, 5, 2);
