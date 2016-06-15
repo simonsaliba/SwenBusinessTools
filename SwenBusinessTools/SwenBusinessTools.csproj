@@ -181,6 +181,7 @@
     can be found.
   -->
   <ItemGroup>
+    <Compile Include="Common.cs" />
     <Compile Include="Consts.cs" />
     <Compile Include="CustomStyle.cs" />
     <Compile Include="frmAggiungiProgetto.cs">
@@ -271,6 +272,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\preview_offerta_economica.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\image1.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

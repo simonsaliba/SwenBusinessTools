@@ -10,14 +10,24 @@ using System.Windows.Forms;
 using Word = Microsoft.Office.Interop.Word;
 using Office = Microsoft.Office.Core;
 using static SwenBusinessTools.CustomStyle;
+using static SwenBusinessTools.Common;
+using System.Reflection;
 
 namespace SwenBusinessTools
 {
     public partial class frmGenerazioneTemplateFattura : Form
     {
+        Word.Document document = null;
+
+        Word.Selection Selection = null;
+
+        object Missing = System.Reflection.Missing.Value;
+
         public frmGenerazioneTemplateFattura()
         {
             InitializeComponent();
+            document = Globals.ThisAddIn.Application.ActiveDocument;
+            Selection = Globals.ThisAddIn.Application.Selection;
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -50,47 +60,284 @@ namespace SwenBusinessTools
             txtSER.Enabled = chkSER.Checked;
         }
 
+        private void AddLogo(Word.Document document)
+        {
+            var logoSwen = document.InlineShapes.AddPicture(@"./Resources/Image1.png", false, true);
+            logoSwen.Height = CentimetersToPoints(3.66f);
+            logoSwen.Width = CentimetersToPoints(6.48f);
+
+            var logoShape = logoSwen.ConvertToShape();
+            logoShape.Left = 0;
+            logoShape.Top = 0;
+        }
+
+        private void SetDocumentMargin()
+        {
+            //Imposta margini
+            document.PageSetup.TopMargin = CentimetersToPoints(1.37f);
+            document.PageSetup.BottomMargin = CentimetersToPoints(2.75f);
+            document.PageSetup.LeftMargin = CentimetersToPoints(1.5f);
+            document.PageSetup.RightMargin = CentimetersToPoints(1.5f);
+            document.PageSetup.Gutter = CentimetersToPoints(0.5f);
+            document.PageSetup.HeaderDistance = CentimetersToPoints(1.3f);
+            document.PageSetup.FooterDistance = CentimetersToPoints(1.25f);
+
+            //Orientamento
+            document.PageSetup.Orientation = Word.WdOrientation.wdOrientPortrait;
+        }
+
         private void wizardOffertaEconomica_Finished(object sender, EventArgs e)
         {
-            var document = Globals.ThisAddIn.Application.ActiveDocument;
+
+            SetDocumentMargin();
 
             SetCustomStyle(document);
 
-            Word.Paragraph notaTecnica = document.Paragraphs.Add(System.Reflection.Missing.Value);
+            //object noReset = false;
+            //object password = "simon";
+            //object useIRM = false;
+            //object enforceStyleLock = false;
+
+            
+            //Aggiungi logo al documento
+            var logoSwen = document.InlineShapes.AddPicture(@"./Resources/Image1.png", false, true);
+            logoSwen.Height = CentimetersToPoints(3.66f);
+            logoSwen.Width = CentimetersToPoints(6.48f);
+
+            var logoShape = logoSwen.ConvertToShape();
+            //logoShape.WrapFormat. = 0;
+            //logoShape.WrapFormat.Side = Word.WdWrapSideType.
+            logoShape.Left = 0;
+            logoShape.Top = 0;
+            
+
+            #region Tabella Tipo Documento
+            Word.Table t0 = document.Tables.Add(document.Range(0,0), 7, 9);
+
+            t0.Range.set_Style("TabellaTipoDoc");
+            t0.Range.Font.Size = 9;
+
+            //imposta le colonne
+            t0.Columns[1].Width = CentimetersToPoints(4.01f);
+
+            //imposta le righe
+            t0.Rows[1].HeightRule = Word.WdRowHeightRule.wdRowHeightAtLeast;
+            t0.Rows[1].Height = CentimetersToPoints(0.29f);
+            t0.Rows[2].HeightRule = Word.WdRowHeightRule.wdRowHeightAtLeast;
+            t0.Rows[2].Height = CentimetersToPoints(1.22f);
+            t0.Rows[3].HeightRule = Word.WdRowHeightRule.wdRowHeightExactly;
+            t0.Rows[3].Height = CentimetersToPoints(0.45f);
+            t0.Rows[4].HeightRule = Word.WdRowHeightRule.wdRowHeightExactly;
+            t0.Rows[4].Height = CentimetersToPoints(0.45f);
+            t0.Rows[5].HeightRule = Word.WdRowHeightRule.wdRowHeightExactly;
+            t0.Rows[5].Height = CentimetersToPoints(0.45f);
+            t0.Rows[6].HeightRule = Word.WdRowHeightRule.wdRowHeightExactly;
+            t0.Rows[6].Height = CentimetersToPoints(0.45f);
+            t0.Rows[7].HeightRule = Word.WdRowHeightRule.wdRowHeightExactly;
+            t0.Rows[7].Height = CentimetersToPoints(0.45f);
+
+
+            t0.Cell(1, 2).Merge(t0.Cell(1, 7));
+            t0.Cell(1, 3).Merge(t0.Cell(1, 4));
+            t0.Cell(2, 1).Merge(t0.Cell(2, 9));
+            t0.Cell(3, 2).Merge(t0.Cell(3, 9));
+            t0.Cell(4, 2).Merge(t0.Cell(4, 9));
+            t0.Cell(6, 2).Merge(t0.Cell(6, 9));
+            t0.Cell(7, 2).Merge(t0.Cell(7, 9));
+
+            t0.PreferredWidth = CentimetersToPoints(10.64f);
+            t0.TableDirection = Word.WdTableDirection.wdTableDirectionLtr;
+            t0.Rows.Alignment = Word.WdRowAlignment.wdAlignRowRight;
+            t0.Rows.WrapAroundText = 1;
+
+            SetTableBolders(t0);
+
+            t0.Cell(1, 1).Width = CentimetersToPoints(4.01f);
+            t0.Cell(1, 2).Width = CentimetersToPoints(5.40f);
+            t0.Cell(1, 3).Width = CentimetersToPoints(1.24f);
+            t0.Cell(2, 1).Width = CentimetersToPoints(10.65f);
+            t0.Cell(3, 1).Width = CentimetersToPoints(4.01f);
+            t0.Cell(3, 2).Width = CentimetersToPoints(6.64f);
+            t0.Cell(4, 1).Width = CentimetersToPoints(4.01f);
+            t0.Cell(4, 2).Width = CentimetersToPoints(6.64f);
+            t0.Cell(6, 1).Width = CentimetersToPoints(4.01f);
+            t0.Cell(6, 2).Width = CentimetersToPoints(6.64f);
+            t0.Cell(7, 1).Width = CentimetersToPoints(4.01f);
+            t0.Cell(7, 2).Width = CentimetersToPoints(6.64f);
+            t0.Cell(5, 1).Width = CentimetersToPoints(4.01f);
+            t0.Cell(5, 2).Width = CentimetersToPoints(0.83f);
+            t0.Cell(5, 3).Width = CentimetersToPoints(0.83f);
+            t0.Cell(5, 4).Width = CentimetersToPoints(0.83f);
+            t0.Cell(5, 5).Width = CentimetersToPoints(0.83f);
+            t0.Cell(5, 6).Width = CentimetersToPoints(0.83f);
+            t0.Cell(5, 7).Width = CentimetersToPoints(0.83f);
+            t0.Cell(5, 8).Width = CentimetersToPoints(0.83f);
+            t0.Cell(5, 9).Width = CentimetersToPoints(0.83f);
+
+            t0.Cell(1, 1).Shading.Texture = Word.WdTextureIndex.wdTextureNone;
+            t0.Cell(1, 1).Shading.BackgroundPatternColor = (Word.WdColor)(219 + 0x100 * 229 + 0x10000 * 241);
+            t0.Cell(1, 2).Shading.Texture = Word.WdTextureIndex.wdTextureNone;
+            t0.Cell(1, 2).Shading.BackgroundPatternColor = (Word.WdColor)(219 + 0x100 * 229 + 0x10000 * 241);
+            t0.Cell(1, 3).Shading.Texture = Word.WdTextureIndex.wdTextureNone;
+            t0.Cell(1, 3).Shading.BackgroundPatternColor = (Word.WdColor)(219 + 0x100 * 229 + 0x10000 * 241);
+            t0.Cell(3, 1).Shading.Texture = Word.WdTextureIndex.wdTextureNone;
+            t0.Cell(3, 1).Shading.BackgroundPatternColor = (Word.WdColor)(219 + 0x100 * 229 + 0x10000 * 241);
+            t0.Cell(4, 1).Shading.Texture = Word.WdTextureIndex.wdTextureNone;
+            t0.Cell(4, 1).Shading.BackgroundPatternColor = (Word.WdColor)(219 + 0x100 * 229 + 0x10000 * 241);
+            t0.Cell(5, 1).Shading.Texture = Word.WdTextureIndex.wdTextureNone;
+            t0.Cell(5, 1).Shading.BackgroundPatternColor = (Word.WdColor)(219 + 0x100 * 229 + 0x10000 * 241);
+            t0.Cell(6, 1).Shading.Texture = Word.WdTextureIndex.wdTextureNone;
+            t0.Cell(6, 1).Shading.BackgroundPatternColor = (Word.WdColor)(219 + 0x100 * 229 + 0x10000 * 241);
+            t0.Cell(7, 1).Shading.Texture = Word.WdTextureIndex.wdTextureNone;
+            t0.Cell(7, 1).Shading.BackgroundPatternColor = (Word.WdColor)(219 + 0x100 * 229 + 0x10000 * 241);
+
+            t0.Cell(1, 1).Range.Text = "Tipo documento";
+            t0.Cell(1, 1).VerticalAlignment = Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
+            t0.Cell(1, 1).Range.ParagraphFormat.SpaceAfter = 0;
+            t0.Cell(1, 1).Range.ParagraphFormat.SpaceBefore = 0;
+
+            t0.Cell(1, 2).Range.Text = "Offerta Economica";
+            t0.Cell(1, 2).VerticalAlignment = Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
+            t0.Cell(1, 2).Range.ParagraphFormat.SpaceAfter = 0;
+            t0.Cell(1, 2).Range.ParagraphFormat.SpaceBefore = 0;
+
+            t0.Cell(1, 3).Range.Text = "OFC";
+            t0.Cell(1, 3).VerticalAlignment = Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
+            t0.Cell(1, 3).Range.ParagraphFormat.SpaceAfter = 0;
+            t0.Cell(1, 3).Range.ParagraphFormat.SpaceBefore = 0;
+
+            t0.Cell(3, 1).Range.Text = "Data";
+            t0.Cell(3, 1).VerticalAlignment = Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
+            t0.Cell(3, 1).Range.ParagraphFormat.SpaceAfter = 0;
+            t0.Cell(3, 1).Range.ParagraphFormat.SpaceBefore = 0;
+
+            t0.Cell(4, 1).Range.Text = "Invio per";
+            t0.Cell(4, 1).VerticalAlignment = Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
+            t0.Cell(4, 1).Range.ParagraphFormat.SpaceAfter = 0;
+            t0.Cell(4, 1).Range.ParagraphFormat.SpaceBefore = 0;
+
+            t0.Cell(5, 1).Range.Text = "Classificazione";
+            t0.Cell(5, 1).VerticalAlignment = Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
+            t0.Cell(5, 1).Range.ParagraphFormat.SpaceAfter = 0;
+            t0.Cell(5, 1).Range.ParagraphFormat.SpaceBefore = 0;
+
+            t0.Cell(6, 1).Range.Text = "Versione";
+            t0.Cell(6, 1).VerticalAlignment = Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
+            t0.Cell(6, 1).Range.ParagraphFormat.SpaceAfter = 0;
+            t0.Cell(6, 1).Range.ParagraphFormat.SpaceBefore = 0;
+
+            t0.Cell(7, 1).Range.Text = "Id documento";
+            t0.Cell(7, 1).VerticalAlignment = Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
+            t0.Cell(7, 1).Range.ParagraphFormat.SpaceAfter = 0;
+            t0.Cell(7, 1).Range.ParagraphFormat.SpaceBefore = 0;
+
+            #endregion
+
+
+
+            /*
+            object start = 0, end = 0;
+            Word.Range rng = document.Range(ref start, ref end);
+            rng.SetRange(rng.End, rng.End);
+
+            #region Tabella riferimenti
+            Word.Table t1 = document.Tables.Add(rng, 8, 3);
+            t1.Range.set_Style("TabellaFirma");
+            t1.Range.Font.Size = 9;
+
+            t1.PreferredWidth = CentimetersToPoints(17.5f);
+            t1.TableDirection = Word.WdTableDirection.wdTableDirectionLtr;
+            
+            t1.Columns[1].Width = CentimetersToPoints(7.64f) ;
+            t1.Columns[2].Width = CentimetersToPoints(1.15f);
+            t1.Columns[3].Width = CentimetersToPoints(8.72f);
+
+            foreach (var row  in t1.Rows)
+            {
+                ((Word.Row)row).HeightRule = Word.WdRowHeightRule.wdRowHeightExactly;
+                ((Word.Row)row).Height = CentimetersToPoints(0.4f);
+            }
+
+            t1.Cell(1, 1).Range.Text = "Rif. Vs. richiesta" ;
+            t1.Cell(2, 1).Range.Text = "Vs. prot. N°";
+            t1.Cell(3, 1).Range.Text = "Del";
+            document.Range(t1.Cell(1, 1).Range.Start, t1.Cell(3, 1).Range.End).Select();
+            Selection.Range.Borders.OutsideLineStyle = Word.WdLineStyle.wdLineStyleSingle;
+            Selection.Range.Borders.OutsideColor = (Word.WdColor)(51 + 0x100 * 51 + 0x10000 * 153);
+
+            t1.Cell(4, 1).Range.Text = "Rif. Ns. Off. Tecnica";
+            t1.Cell(5, 1).Range.Text = "Ns. protocollo N°";
+            t1.Cell(6, 1).Range.Text = "Del";
+            document.Range(t1.Cell(4, 1).Range.Start, t1.Cell(6, 1).Range.End).Select();
+            Selection.Range.Borders.OutsideLineStyle = Word.WdLineStyle.wdLineStyleSingle;
+            Selection.Range.Borders.OutsideColor = (Word.WdColor)(51 + 0x100 * 51 + 0x10000 * 153);
+
+            t1.Cell(7, 1).Range.Text = "Rif. Persona";
+            t1.Cell(8, 1).Range.Text = "Progetto";
+            document.Range(t1.Cell(7, 1).Range.Start, t1.Cell(8, 1).Range.End).Select();
+            Selection.Range.Borders.OutsideLineStyle = Word.WdLineStyle.wdLineStyleSingle;
+            Selection.Range.Borders.OutsideColor = (Word.WdColor)(51 + 0x100 * 51 + 0x10000 * 153);
+
+            t1.Cell(1, 3).Range.Text = "Destinatario";
+            t1.Cell(2, 3).Range.Text = "Spett.";
+            t1.Cell(3, 3).Range.Text = "";
+            t1.Cell(4, 3).Range.Text = "";
+            t1.Cell(5, 3).Range.Text = "";
+            t1.Cell(6, 3).Range.Text = "";
+            document.Range(t1.Cell(1, 3).Range.Start, t1.Cell(6, 3).Range.End).Select();
+            Selection.Range.Borders.OutsideLineStyle = Word.WdLineStyle.wdLineStyleSingle;
+            Selection.Range.Borders.OutsideColor = (Word.WdColor)(51 + 0x100 * 51 + 0x10000 * 153);
+
+            t1.Cell(7, 3).Range.Text = "C.A.";
+            t1.Cell(8, 3).Range.Text = "P.C.";
+            document.Range(t1.Cell(7, 3).Range.Start, t1.Cell(8, 3).Range.End).Select();
+            Selection.Range.Borders.OutsideLineStyle = Word.WdLineStyle.wdLineStyleSingle;
+            Selection.Range.Borders.OutsideColor = (Word.WdColor)(51 + 0x100 * 51 + 0x10000 * 153);
+            #endregion
+
+            rng.SetRange(t1.Range.End, t1.Range.End);
+
+            rng.InsertParagraphAfter();
+
+            rng.SetRange(rng.End, rng.End);
+
+            Word.Paragraph p1 = document.Paragraphs.Add(rng);
+            p1.Range.Text = "Con la presente Vi rimettiamo offerta economica per i prodotti / servizi elencati nella sezione “Configurazione offerta”, eventualmente descritti dettagliatamente nell’apposita offerta tecnica indicata in calce.";
+            p1.Range.set_Style("normale");
+            p1.Range.InsertParagraphAfter();
+
+
+            
+            //Word.Paragraph notaTecnica = document.Paragraphs.Add(System.Reflection.Missing.Value);
+            Word.Paragraph notaTecnica = document.Paragraphs.Add(p1.Range);
             notaTecnica.Range.Text = "Nota tecnica";
             notaTecnica.Range.set_Style("titolo 3");
             notaTecnica.Range.InsertParagraphAfter();
             
-
             Word.Paragraph testoNotaTecnica = document.Paragraphs.Add(notaTecnica.Range);
             testoNotaTecnica.Range.Text = txtNotatecnica.Text;
             testoNotaTecnica.Range.set_Style("normale");
             testoNotaTecnica.Range.InsertParagraphAfter();
-
 
             Word.Paragraph notaCommerciale = document.Paragraphs.Add(testoNotaTecnica.Range);
             notaCommerciale.Range.Text = "Nota commerciale";
             notaCommerciale.Range.set_Style("titolo 3");
             notaCommerciale.Range.InsertParagraphAfter();
 
-
             Word.Paragraph testoNotaCommerciale = document.Paragraphs.Add(notaCommerciale.Range);
             testoNotaCommerciale.Range.Text = txtNotaCommerciale.Text;
             testoNotaCommerciale.Range.set_Style("normale");
             testoNotaCommerciale.Range.InsertParagraphAfter();
-
 
             Word.Paragraph condizioniGenerali = document.Paragraphs.Add(testoNotaCommerciale.Range);
             condizioniGenerali.Range.Text = "Condizioni generali";
             condizioniGenerali.Range.set_Style("titolo 3");
             condizioniGenerali.Range.InsertParagraphAfter();
 
-
             Word.Paragraph testoCondizioniGenerali = document.Paragraphs.Add(condizioniGenerali.Range);
             testoCondizioniGenerali.Range.Text = "La presente offerta si intende valida per 7 gg. alle seguenti condizioni di fornitura (individuare le voci che interessano sulla base della categoria indicata per ciascun articolo in offerta); l’accettazione della presente offerta implica la tacita accettazione di tutte le condizioni applicabili a ciascuna categoria merceologica offerta.";
             testoCondizioniGenerali.Range.set_Style("normale");
             testoCondizioniGenerali.Range.InsertParagraphAfter();
-
 
             Word.Paragraph testoGenerali = document.Paragraphs.Add(testoCondizioniGenerali.Range);
             testoGenerali.Range.Text = "Generali:";
@@ -99,7 +346,9 @@ namespace SwenBusinessTools
 
             Word.Paragraph testoElencoGenerale = document.Paragraphs.Add(testoGenerali.Range);
             testoElencoGenerale.Range.ListFormat.ApplyBulletDefault();
-            
+
+            testoElencoGenerale.Range.ParagraphFormat.Alignment = Word.WdParagraphAlignment.wdAlignParagraphJustify;
+            testoElencoGenerale.Range.ParagraphFormat.OutlineLevel = Word.WdOutlineLevel.wdOutlineLevelBodyText;
             testoElencoGenerale.Range.ParagraphFormat.SpaceAfterAuto = 0;
             testoElencoGenerale.Range.ParagraphFormat.SpaceBeforeAuto = 0;
             testoElencoGenerale.Range.ParagraphFormat.FirstLineIndent = -7f;
@@ -164,6 +413,11 @@ namespace SwenBusinessTools
             Word.Cell firmaCliente = table.Cell(5, 1);
             firmaCliente.Merge(table.Cell(5, 2));
             firmaCliente.Range.Text = "Firma del Cliente ai sensi degli art. 1341 e 1342 del Codice Civile e successive modificazioni, per approvazione esplicita di tutti i paragrafi della presente offerta, in particolare ogni singolo comma del paragrafo “condizioni generali”. ";
+
+            //document.Protect(Word.WdProtectionType.wdAllowOnlyReading, ref noReset, ref password, ref useIRM, ref enforceStyleLock);
+
+            //notaTecnica.Range.Editors.Add(Word.WdEditorType.wdEditorEveryone);
+            */
         }
     }
 }

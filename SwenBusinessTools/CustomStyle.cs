@@ -13,10 +13,14 @@ namespace SwenBusinessTools
         public static void SetCustomStyle(Word.Document document)
         {
             var styles = document.Styles;
-
-            styles.Add("CondizioniGenerali");
-            styles.Add("CondizioniGeneraliNoBold");
-            styles.Add("TabellaFirma");
+            try
+            {
+                styles.Add("CondizioniGenerali");
+                styles.Add("CondizioniGeneraliNoBold");
+                styles.Add("TabellaFirma");
+                styles.Add("TabellaTipoDoc");
+            }
+            catch { }
 
             foreach (var style in styles)
             {
@@ -33,7 +37,8 @@ namespace SwenBusinessTools
                     ((Word.Style)style).Font.Bold = 0;
                     ((Word.Style)style).Font.Size = 10f;
                     ((Word.Style)style).Font.Name = "Trebuchet MS";
-                       
+                    ((Word.Style)style).ParagraphFormat.Alignment = Word.WdParagraphAlignment.wdAlignParagraphJustify;
+                    ((Word.Style)style).ParagraphFormat.OutlineLevel = Word.WdOutlineLevel.wdOutlineLevelBodyText;
                     //test
                     //((Word.Style)style).ParagraphFormat.SpaceAfterAuto = 0;
                     //((Word.Style)style).ParagraphFormat.SpaceBeforeAuto = 0;
@@ -80,10 +85,10 @@ namespace SwenBusinessTools
                     ((Word.Style)style).Font.Color = Word.WdColor.wdColorBlack;
                 }
 
-                if (((Word.Style)style).NameLocal.ToLower() == "tabellafirma")
+                if (((Word.Style)style).NameLocal.ToLower() == "tabellatipodoc")
                 {
                     ((Word.Style)style).Font.Bold = 1;
-                    ((Word.Style)style).Font.Size = 6f;
+                    ((Word.Style)style).Font.Size = 8f;
                     ((Word.Style)style).Font.Name = "Trebuchet MS";
                     ((Word.Style)style).Font.Color = (Word.WdColor)(51 + 0x100 * 51 + 0x10000 * 153);
                 }
