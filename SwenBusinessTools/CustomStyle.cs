@@ -104,5 +104,17 @@ namespace SwenBusinessTools
             table.Borders.OutsideColor = (Word.WdColor)(51 + 0x100 * 51 + 0x10000 * 153);
         }
 
+        public static void SetTableBolders(Word.Table table, Word.WdColor color)
+        {
+            table.Borders.InsideLineStyle = Word.WdLineStyle.wdLineStyleSingle;
+            table.Borders.InsideColor = color;
+            table.Borders.OutsideLineStyle = Word.WdLineStyle.wdLineStyleSingle;
+            table.Borders.OutsideColor = color;
+        }
+
+        public static Word.WdColor ColorRGB(int red, int green, int blue)
+        {
+            return (Word.WdColor)(red + 0x100 * green + 0x10000 * blue);
+        }
     }
 }
