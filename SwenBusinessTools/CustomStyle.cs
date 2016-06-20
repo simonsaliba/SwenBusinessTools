@@ -93,6 +93,16 @@ namespace SwenBusinessTools
                     ((Word.Style)style).Font.Color = (Word.WdColor)(51 + 0x100 * 51 + 0x10000 * 153);
                 }
 
+                if (((Word.Style)style).NameLocal.ToLower() == "tabellafirma")
+                {
+                    ((Word.Style)style).Font.Bold = 1;
+                    ((Word.Style)style).Font.Size = 6f;
+                    ((Word.Style)style).ParagraphFormat.SpaceAfter = 0;
+                    ((Word.Style)style).ParagraphFormat.SpaceBefore = 0;
+                    ((Word.Style)style).Font.Name = "Trebuchet MS";
+                    ((Word.Style)style).Font.Color = (Word.WdColor)(51 + 0x100 * 51 + 0x10000 * 153);
+                }
+
             }
         }
 
