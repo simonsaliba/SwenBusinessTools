@@ -274,17 +274,17 @@
     <None Include="Resources\preview_offerta_economica.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\image1.png">
+    <EmbeddedResource Include="Resources\image1.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\image3.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Resources\image4.jpeg">
+    <EmbeddedResource Include="Resources\image4.jpeg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -63,9 +63,29 @@ namespace SwenBusinessTools.Properties {
         /// <summary>
         ///   Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap firmaIera {
+            get {
+                object obj = ResourceManager.GetObject("firmaIera", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap logoSwen {
             get {
                 object obj = ResourceManager.GetObject("logoSwen", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap logoSwenSmall {
+            get {
+                object obj = ResourceManager.GetObject("logoSwenSmall", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

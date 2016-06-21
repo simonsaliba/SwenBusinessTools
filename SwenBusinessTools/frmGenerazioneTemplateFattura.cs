@@ -12,6 +12,7 @@ using Office = Microsoft.Office.Core;
 using static SwenBusinessTools.CustomStyle;
 using static SwenBusinessTools.Common;
 using System.Reflection;
+using System.IO;
 
 namespace SwenBusinessTools
 {
@@ -23,10 +24,12 @@ namespace SwenBusinessTools
 
         object Missing = System.Reflection.Missing.Value;
 
+        string addinPath = string.Empty;
+
         public frmGenerazioneTemplateFattura()
         {
             InitializeComponent();
-            document = Globals.ThisAddIn.Application.ActiveDocument;
+            document = Globals.ThisAddIn.Application.Documents.Add(Missing, Missing, Missing, true);
             Selection = Globals.ThisAddIn.Application.Selection;
         }
 
@@ -58,18 +61,7 @@ namespace SwenBusinessTools
         private void chkSER_CheckedChanged(object sender, EventArgs e)
         {
             txtSER.Enabled = chkSER.Checked;
-        }
-
-        private void AddLogo(Word.Document document)
-        {
-            var logoSwen = document.InlineShapes.AddPicture(@"./Resources/Image1.png", false, true);
-            logoSwen.Height = CentimetersToPoints(3.66f);
-            logoSwen.Width = CentimetersToPoints(6.48f);
-
-            var logoShape = logoSwen.ConvertToShape();
-            logoShape.Left = 0;
-            logoShape.Top = 0;
-        }
+        }       
 
         private void SetDocumentMargin()
         {
@@ -88,7 +80,6 @@ namespace SwenBusinessTools
 
         private void wizardOffertaEconomica_Finished(object sender, EventArgs e)
         {
-
             SetDocumentMargin();
             SetCustomStyle(document);
 
@@ -98,7 +89,13 @@ namespace SwenBusinessTools
             //object enforceStyleLock = false;
 
             #region Logo Swen
-            var logoSwen = document.InlineShapes.AddPicture(@"./Resources/Image1.png", false, true);
+            //Globals.ThisAddIn
+            System.Drawing.Bitmap logoSwen1 = SwenBusinessTools.Properties.Resources.logoSwen;
+            var temp = Path.GetTempPath();
+            var fileName = Path.Combine(temp, "logoSwen.png");
+            logoSwen1.Save(fileName);
+
+            var logoSwen = document.InlineShapes.AddPicture(fileName, false, true);
             var logoShape = logoSwen.ConvertToShape();
             logoShape.Left = 0;
             logoShape.Top = 0;
@@ -110,6 +107,7 @@ namespace SwenBusinessTools
             logoShape.RelativeHorizontalPosition = Word.WdRelativeHorizontalPosition.wdRelativeHorizontalPositionMargin;
             logoShape.RelativeVerticalPosition = Word.WdRelativeVerticalPosition.wdRelativeVerticalPositionMargin;
             #endregion
+
 
             object start = 0, end = 0;
             Word.Range rng = document.Range(ref start, ref end);
@@ -216,8 +214,6 @@ namespace SwenBusinessTools
             t0.Cell(2, 1).Range.ParagraphFormat.SpaceBefore = 0;
             rng.SetRange(t0.Cell(2, 1).Range.Start, t0.Cell(2, 1).Range.Start);
             t0.Cell(2, 1).Range.Fields.Add(rng, Word.WdFieldType.wdFieldEmpty, "FILENAME  \\*Upper ", true);
-
-
 
             t0.Cell(3, 1).Range.Text = "Data";
             t0.Cell(3, 1).VerticalAlignment = Word.WdCellVerticalAlignment.wdCellAlignVerticalCenter;
@@ -538,9 +534,11 @@ namespace SwenBusinessTools
             t2.Cell(2, 4).Width = CentimetersToPoints(2.54f);
 
 
-            //t2.Cell(1, 1).Select();
+            System.Drawing.Bitmap logoSwen2 = SwenBusinessTools.Properties.Resources.logoSwenSmall;
+            fileName = Path.Combine(temp, "logoSewnSmall.jpeg");
+            logoSwen2.Save(fileName);
 
-            var logoSwenSmall = document.InlineShapes.AddPicture(@"./Resources/image4.jpeg", false, true);
+            var logoSwenSmall = document.InlineShapes.AddPicture(fileName, false, true);
             logoSwenSmall.Width = CentimetersToPoints(2.24f);
             logoSwenSmall.Height = CentimetersToPoints(1.24f);
             logoSwenSmall.LockAspectRatio = Office.MsoTriState.msoTrue;
@@ -548,7 +546,7 @@ namespace SwenBusinessTools
             logoSwenSmall.Range.Cut();
             t2.Cell(1, 1).Range.PasteAndFormat(Word.WdRecoveryType.wdFormatOriginalFormatting);
             Clipboard.Clear();
-
+            
             t2.Cell(1, 2).Range.Font.Size = 6;
             t2.Cell(1, 2).Range.Font.Name = "Trebuchet MS";
             t2.Cell(1, 2).Range.Font.Color = ColorRGB(54, 95, 145);
@@ -562,9 +560,15 @@ namespace SwenBusinessTools
             t2.Cell(1, 2).Range.InsertAfter("SEDE LEGALE: VIA FOAIANO DELLA CHIANA, 27 - 00146 ROMA\n");
             t2.Cell(1, 2).Range.InsertAfter("P.IVA 03553421003 - TRIB. DI ROMA N. 2060/89 - CCIAA 672853\n");
             t2.Cell(1, 2).Range.InsertAfter("HTTP://WWW.SWEN.IT - E-MAIL: SWEN@SWEN.IT");
+
+            t2.Cell(1, 4).Range.InsertAfter("Pag ");
+            rng.SetRange(t2.Cell(1, 4).Range.Start + "Pag ".Length, t2.Cell(1, 4).Range.Start + "Pag ".Length);
+            t2.Cell(1, 4).Range.Fields.Add(rng, Word.WdFieldType.wdFieldEmpty, "FILENAME  \\*Upper ", true);
+
             #endregion
 
-            Selection.Select();
+            document.SaveAs2("c:\\temp\\pippo.docx");
+            document.Activate();
         }
     }
 }
